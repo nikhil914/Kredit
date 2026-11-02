@@ -106,6 +106,8 @@ export interface CardExtensions {
   art?: { from: string; to: string; ink?: "light" | "dark" };
   /** ISO date the record was last verified. */
   last_verified?: string;
+  /** Draft: kept in the dataset but never shown on the public site. */
+  hidden?: boolean;
 }
 
 export type Card = ScraperCard & CardExtensions;
