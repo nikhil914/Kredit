@@ -44,17 +44,17 @@ export interface LifestylePerks {
 }
 
 export interface CashbackRates {
-  groceries_percent: number;
-  fuel_percent: number;
-  dining_percent: number;
-  utilities_telecom_percent: number;
-  education_percent: number;
+  groceries_percent: number | null;
+  fuel_percent: number | null;
+  dining_percent: number | null;
+  utilities_telecom_percent: number | null;
+  education_percent: number | null;
   /** 0 or null = uncapped */
   monthly_cap_aed: number | null;
   /** Extension: rate on foreign-currency spend */
-  international_percent?: number;
+  international_percent?: number | null;
   /** Extension: base rate on all other spend */
-  other_percent?: number;
+  other_percent?: number | null;
 }
 
 /** Exact scraper schema. */
@@ -63,14 +63,14 @@ export interface ScraperCard {
   card_name: string;
   bank_name: BankCode;
   is_islamic: boolean;
-  network: Network;
-  tier: Tier;
-  min_salary_aed: number;
-  annual_fee_aed: number;
+  network: Network | null;
+  tier: Tier | null;
+  min_salary_aed: number | null;
+  annual_fee_aed: number | null;
   is_free_for_life: boolean;
   annual_fee_waiver_condition: string | null;
-  monthly_interest_rate_percent: number;
-  fx_fee_percent: number;
+  monthly_interest_rate_percent: number | null;
+  fx_fee_percent: number | null;
   welcome_bonus: string | null;
   reward_type: RewardType[];
   key_benefits: string[];
@@ -100,7 +100,7 @@ export interface CardExtensions {
   /** Monthly spend needed to unlock the headline reward rates. */
   min_monthly_spend_aed?: number | null;
   early_cancellation_fee_aed?: number | null;
-  apply_url?: string;
+  apply_url?: string | null;
   ecosystem_tags?: EcosystemTag[];
   /** Two-stop gradient + ink colour for the card artwork. */
   art?: { from: string; to: string; ink?: "light" | "dark" };
