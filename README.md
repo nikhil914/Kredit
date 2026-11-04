@@ -14,6 +14,32 @@ npm run build      # static export to out/
 One-time setup: repo **Settings > Pages > Source: GitHub Actions**. The site is then served at
 `https://<user>.github.io/<repo>/`; the workflow sets the base path automatically.
 
+## Admin dashboard (`/admin/`)
+
+Open `https://<user>.github.io/<repo>/admin/` (not linked from the public site, and marked `noindex`).
+
+- **Cards**: search, filter by bank, add, edit (form with live card preview and validation), duplicate, hide/show, delete. Hidden cards stay in the data as drafts and never render on the public site.
+- **Bulk import**: drop a CSV or JSON file (for example the scraper's `cards_extended.json`) or paste it. You see a preview of new, updated, unchanged and invalid rows before applying. Choose merge (upsert by `id`) or replace all. Invalid rows can be kept as hidden drafts to fix later.
+- **Export**: `cards.json`, `cards.csv` for Excel or Google Sheets, and a CSV template.
+- **Publish**: commits `data/cards.json` to GitHub with a fine-grained token (Contents: Read and write on this repo only). The push triggers the deploy workflow, so the site updates in about a minute. If the file changed on GitHub since you loaded it, your edits are re-applied card by card on top. Overlapping edits to the same card stop the publish instead of overwriting.
+
+Edits are saved in your browser (localStorage) until you publish or discard them. The token is kept for the tab only, unless you tick "Remember on this device".
+
+Security note: the site is static, so there is no server login. `/admin/` is publicly reachable, but it can only change data with a GitHub token that has write access to the repo.
+
+## Bulk import from the command line
+
+```bash
+npm run import -- path/to/cards_extended.json            # merge by id into data/cards.json
+npm run import -- sheet.csv --dry-run                     # report only
+npm run import -- sheet.csv --replace --drafts            # replace all, keep invalid rows hidden
+npm run export:csv                                        # write data/cards.csv
+```
+
+The CLI uses the same validator as the dashboard (`lib/validate.ts`). It exits with code 1 when rows are invalid, so it can gate CI. Commit `data/cards.json` afterwards to redeploy.
+
+CSV conventions: one row per card, columns as in the template, lists separated by ` | ` inside a cell, and booleans as `true/false` or `yes/no`. Bank names accept codes (`ENBD`) or full names (`Emirates NBD`).
+
 ## Architecture
 
 ```
