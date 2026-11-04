@@ -183,7 +183,7 @@ export function CardTile({ card, rank }: { card: Card; rank?: number }) {
             <XrayRow
               label={t("fxFee")}
               value={pct(card.fx_fee_percent)}
-              warn={card.fx_fee_percent >= 2.75}
+              warn={(card.fx_fee_percent ?? 0) >= 2.75}
             />
             <XrayRow
               label={t("waiver")}

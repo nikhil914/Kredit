@@ -128,25 +128,25 @@ export function validateCard(input: Loose): ValidationResult {
     matchEnum(bankRaw, BANK_CODES) ?? (bankRaw ? BANK_ALIASES[bankRaw.toLowerCase()] : undefined) ?? null;
   if (!bank_name) errors.push(`bank_name "${bankRaw ?? ""}" must be one of ${BANK_CODES.join(", ")}`);
 
-  const network = matchEnum(input.network, NETWORKS);
-  if (!network) errors.push(`network "${toStr(input.network) ?? ""}" must be one of ${NETWORKS.join(", ")}`);
+  const network = matchEnum(input.network, NETWORKS) ?? null;
+  if (!network && toStr(input.network)) errors.push(`network "${toStr(input.network) ?? ""}" must be one of ${NETWORKS.join(", ")}`);
 
-  const tier = matchEnum(input.tier, TIERS);
-  if (!tier) errors.push(`tier "${toStr(input.tier) ?? ""}" must be one of ${TIERS.join(", ")}`);
+  const tier = matchEnum(input.tier, TIERS) ?? null;
+  if (!tier && toStr(input.tier)) errors.push(`tier "${toStr(input.tier) ?? ""}" must be one of ${TIERS.join(", ")}`);
 
   const is_islamic = toBool(input.is_islamic);
   if (is_islamic === null) errors.push("is_islamic must be true/false");
 
   // ---- fees + eligibility -------------------------------------------------
   const min_salary_aed = toNumber(input.min_salary_aed);
-  if (min_salary_aed === null) errors.push("min_salary_aed is required");
+  if (min_salary_aed === null) warnings.push("min_salary_aed missing (shown as —)");
   else if (min_salary_aed < 0) errors.push("min_salary_aed cannot be negative");
   else if (min_salary_aed > 0 && min_salary_aed < 3000) warnings.push(`min_salary_aed ${min_salary_aed} looks low for a UAE card`);
 
   let is_free_for_life = toBool(input.is_free_for_life);
   let annual_fee_aed = toNumber(input.annual_fee_aed);
   if (annual_fee_aed === null && is_free_for_life) annual_fee_aed = 0;
-  if (annual_fee_aed === null) errors.push("annual_fee_aed is required (0 if free)");
+  if (annual_fee_aed === null) warnings.push("annual_fee_aed missing (shown as —)");
   if (is_free_for_life === null) {
     is_free_for_life = annual_fee_aed === 0;
     warnings.push("is_free_for_life missing; inferred from annual_fee_aed");
@@ -154,11 +154,11 @@ export function validateCard(input: Loose): ValidationResult {
   if (is_free_for_life && annual_fee_aed) errors.push("is_free_for_life is true but annual_fee_aed is not 0");
 
   const monthly_interest_rate_percent = toNumber(input.monthly_interest_rate_percent);
-  if (monthly_interest_rate_percent === null) errors.push("monthly_interest_rate_percent is required");
+  if (monthly_interest_rate_percent === null) warnings.push("monthly_interest_rate_percent missing (shown as —)");
   else if (monthly_interest_rate_percent > 5) warnings.push(`monthly_interest_rate_percent ${monthly_interest_rate_percent}% looks like an annual rate`);
 
   const fx_fee_percent = toNumber(input.fx_fee_percent);
-  if (fx_fee_percent === null) errors.push("fx_fee_percent is required");
+  if (fx_fee_percent === null) warnings.push("fx_fee_percent missing (shown as —)");
   else if (fx_fee_percent > 5) warnings.push(`fx_fee_percent ${fx_fee_percent}% is unusually high`);
 
   // ---- rewards ------------------------------------------------------------

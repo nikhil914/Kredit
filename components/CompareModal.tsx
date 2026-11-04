@@ -56,7 +56,7 @@ export function CompareModal() {
     ) : (
       <Minus className="mx-auto size-4 text-slate-300" aria-label={t("no")} />
     );
-  const rate = (pick: (c: Card) => number | undefined): Pick<Row, "num" | "show" | "better"> => ({
+  const rate = (pick: (c: Card) => number | null | undefined): Pick<Row, "num" | "show" | "better"> => ({
     num: (c) => pick(c) ?? c.cashback_rates.other_percent ?? 0,
     show: (c) => pct(pick(c) ?? c.cashback_rates.other_percent ?? 0),
     better: "high",

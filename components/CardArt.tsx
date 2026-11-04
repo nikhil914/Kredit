@@ -57,6 +57,7 @@ export function CardArt({ card, size = "md" }: { card: Card; size?: "xs" | "sm" 
 }
 
 function NetworkMark({ network, small }: { network: Card["network"]; small: boolean }) {
+  if (!network) return null;
   if (network === "Mastercard") {
     return (
       <span className={`relative inline-flex ${small ? "h-3 w-5" : "h-6 w-10"}`}>
