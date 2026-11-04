@@ -77,7 +77,7 @@ export function feeCategory(card: Card): FeeFilter {
 
 /** Ongoing (year 2+) annual fee used in net-value maths. */
 export function ongoingFee(card: Card): number {
-  return card.is_free_for_life ? 0 : card.annual_fee_aed;
+  return card.is_free_for_life ? 0 : card.annual_fee_aed ?? 0;
 }
 
 /* ------------------------------------------------------------------ */
@@ -144,7 +144,7 @@ export function computeRewards(card: Card, spend: MonthlySpend): RewardBreakdown
   const total = totalSpend(spend);
   const headlineUnlocked = !card.min_monthly_spend_aed || total >= card.min_monthly_spend_aed;
 
-  const rate = (headline: number) => (headlineUnlocked ? headline : Math.min(headline, base));
+  const rate = (headline: number | null | undefined) => (headlineUnlocked ? headline ?? base : Math.min(headline ?? base, base));
 
   const categorised =
     (spend.groceries * rate(r.groceries_percent) +
@@ -161,7 +161,7 @@ export function computeRewards(card: Card, spend: MonthlySpend): RewardBreakdown
 
   const annualRewards = monthlyRewards * 12;
   const annualFee = ongoingFee(card);
-  const annualFxCost = (spend.international * card.fx_fee_percent * 12) / 100;
+  const annualFxCost = (spend.international * (card.fx_fee_percent ?? 0) * 12) / 100;
 
   return {
     monthlyRewards,
@@ -190,7 +190,7 @@ export interface FilterState {
 }
 
 export function isEligible(card: Card, salary: number): boolean {
-  return salary >= SALARY_MAX || card.min_salary_aed <= salary;
+  return salary >= SALARY_MAX || (card.min_salary_aed ?? 0) <= salary;
 }
 
 /** Hard filters remove cards. Salary does NOT remove: it greys out. */
@@ -229,7 +229,7 @@ export function sortCards(
       case "fee_asc":
         return ongoingFee(a) - ongoingFee(b);
       case "salary_asc":
-        return a.min_salary_aed - b.min_salary_aed;
+        return (a.min_salary_aed ?? Infinity) - (b.min_salary_aed ?? Infinity) || 0;
       default: {
         // "Recommended": net value for a typical UAE household spend profile.
         return typical.get(b.id)! - typical.get(a.id)!;
@@ -242,13 +242,15 @@ export function sortCards(
 /* Formatting                                                          */
 /* ------------------------------------------------------------------ */
 
-export function aed(n: number, locale = "en"): string {
+export function aed(n: number | null | undefined, locale = "en"): string {
+  if (n === null || n === undefined) return "—";
   const fmt = new Intl.NumberFormat(locale === "ar" ? "ar-AE" : "en-AE", {
     maximumFractionDigits: 0,
   });
   return `AED ${fmt.format(Math.round(n))}`;
 }
 
-export function pct(n: number): string {
+export function pct(n: number | null | undefined): string {
+  if (n === null || n === undefined) return "—";
   return `${Number.isInteger(n) ? n : n.toFixed(2).replace(/0$/, "")}%`;
 }
