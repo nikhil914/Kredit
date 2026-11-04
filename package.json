@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "npx serve out",
-    "lint": "tsc --noEmit"
+    "lint": "tsc --noEmit",
+    "import": "node scripts/import-cards.mts",
+    "export:csv": "node scripts/export-csv.mts"
   },
   "dependencies": {
     "lucide-react": "^1.66.0",

@@ -147,23 +147,34 @@ interface Ctx {
 
 const StoreContext = createContext<Ctx | null>(null);
 
-export function StoreProvider({ cards, children }: { cards: Card[]; children: ReactNode }) {
+export function StoreProvider({
+  cards,
+  children,
+  syncDocument = true,
+}: {
+  cards: Card[];
+  children: ReactNode;
+  /** false for embedded previews (admin) so they do not touch <html> or storage. */
+  syncDocument?: boolean;
+}) {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   // Locale: restore remembered choice, mirror to <html lang dir>.
   useEffect(() => {
+    if (!syncDocument) return;
     try {
       const saved = localStorage.getItem("locale");
       if (saved === "ar" || saved === "en") dispatch({ type: "locale", value: saved });
     } catch {}
-  }, []);
+  }, [syncDocument]);
   useEffect(() => {
+    if (!syncDocument) return;
     document.documentElement.lang = state.locale;
     document.documentElement.dir = state.locale === "ar" ? "rtl" : "ltr";
     try {
       localStorage.setItem("locale", state.locale);
     } catch {}
-  }, [state.locale]);
+  }, [state.locale, syncDocument]);
 
   useEffect(() => {
     if (!state.toast) return;
