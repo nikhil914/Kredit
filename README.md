@@ -23,9 +23,17 @@ Open `https://<user>.github.io/<repo>/admin/` (not linked from the public site, 
 - **Export**: `cards.json`, `cards.csv` for Excel or Google Sheets, and a CSV template.
 - **Publish**: commits `data/cards.json` to GitHub with a fine-grained token (Contents: Read and write on this repo only). The push triggers the deploy workflow, so the site updates in about a minute. If the file changed on GitHub since you loaded it, your edits are re-applied card by card on top. Overlapping edits to the same card stop the publish instead of overwriting.
 
-Edits are saved in your browser (localStorage) until you publish or discard them. The token is kept for the tab only, unless you tick "Remember on this device".
+Edits are saved in your browser (localStorage) until you publish or discard them.
 
-Security note: the site is static, so there is no server login. `/admin/` is publicly reachable, but it can only change data with a GitHub token that has write access to the repo.
+### Admin security
+
+- **Sign-in gate.** The admin shows nothing until you paste a GitHub token and GitHub confirms that its account can push to `nikhil914/Kredit`. Use a fine-grained token scoped to this repo only, with Contents: Read and write and a short expiry.
+- **Token never stored.** The token lives in the tab's memory only. Reloading, closing the tab, Sign out, or 30 minutes idle signs you out. (All `*.github.io` project sites of one user share one browser origin, so anything in localStorage could be read by another of your Pages sites.) Tokens saved by older builds are wiped on load.
+- **Fixed target.** Owner, repo, branch and path are fixed in `lib/github.ts`; the UI cannot point commits elsewhere.
+- **CSP.** The admin page sets a Content-Security-Policy meta tag. `connect-src` allows only the site itself and `api.github.com`, so script cannot send the token anywhere else. The admin also refuses to run inside a frame.
+- **Safe links.** Card links must be full `https://` URLs. Publishing is blocked if any card (drafts included) has another kind of link, and the public site drops unsafe links and non-hex card colours at render time (`lib/security.ts`).
+
+Limits, honestly: the site is static, so there is no server login. The admin's JavaScript and the card data are public (the repo is public), and anyone can download them. The gate stops people without repo access from using the tools; what actually protects the live site is GitHub only accepting commits from a token with write access. Never paste the token anywhere except this page.
 
 ## Bulk import from the command line
 

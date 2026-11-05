@@ -1,22 +1,13 @@
 "use client";
 
-import { CloudDownload, ExternalLink, KeyRound, Rocket, ShieldAlert } from "lucide-react";
-import { useEffect, useState } from "react";
-import { DEFAULT_TARGET, commitFile, fetchRemoteFile, type RepoTarget } from "@/lib/github";
+import { CloudDownload, ExternalLink, Rocket, ShieldCheck } from "lucide-react";
+import { useState } from "react";
+import { DEFAULT_TARGET as target, commitFile, fetchRemoteFile } from "@/lib/github";
+import { hasUnsafeUrl } from "@/lib/security";
 import type { Card } from "@/lib/types";
 import { validateCard } from "@/lib/validate";
-import { diffCards, rebase, sameCard, toJsonText, type Diff } from "./diff";
-
-const TOKEN_KEY = "kredit-admin-token";
-const TARGET_KEY = "kredit-admin-target";
-
-function readStored(key: string): string | null {
-  try {
-    return sessionStorage.getItem(key) ?? localStorage.getItem(key);
-  } catch {
-    return null;
-  }
-}
+import { useAdminSession } from "./AdminGate";
+import { rebase, sameCard, toJsonText, type Diff } from "./diff";
 
 export function PublishPanel({
   base,
@@ -31,47 +22,22 @@ export function PublishPanel({
   onLoaded: (remote: Card[]) => void;
   onPublished: (published: Card[]) => void;
 }) {
-  const [target, setTarget] = useState<RepoTarget>(DEFAULT_TARGET);
-  const [token, setToken] = useState("");
-  const [remember, setRemember] = useState(false);
+  const { token, login } = useAdminSession();
   const [message, setMessage] = useState("");
   const [busy, setBusy] = useState<null | "load" | "publish">(null);
   const [status, setStatus] = useState<{ tone: "ok" | "err"; text: string; links?: [string, string][] } | null>(null);
 
-  useEffect(() => {
-    const t = readStored(TOKEN_KEY);
-    if (t) {
-      setToken(t);
-      try {
-        setRemember(!!localStorage.getItem(TOKEN_KEY));
-      } catch {}
-    }
-    const tg = readStored(TARGET_KEY);
-    if (tg) {
-      try {
-        setTarget({ ...DEFAULT_TARGET, ...JSON.parse(tg) });
-      } catch {}
-    }
-  }, []);
-
-  const persist = () => {
-    try {
-      localStorage.removeItem(TOKEN_KEY);
-      sessionStorage.removeItem(TOKEN_KEY);
-      if (token) (remember ? localStorage : sessionStorage).setItem(TOKEN_KEY, token);
-      localStorage.setItem(TARGET_KEY, JSON.stringify(target));
-    } catch {}
-  };
-
-  const blocking = cards.filter((c) => !c.hidden && validateCard(c as never).errors.length > 0);
+  // Visible cards must be valid. Unsafe links block publishing even on hidden
+  // drafts, so they can never land in the public data file.
+  const blocking = cards.filter((c) => (!c.hidden && validateCard(c as never).errors.length > 0) || hasUnsafeUrl(c));
   const defaultMessage = `Update card data: ${diff.added.length} added, ${diff.modified.length} updated, ${diff.deleted.length} removed`;
 
   async function load() {
     setBusy("load");
     setStatus(null);
     try {
-      const remote = await fetchRemoteFile(target, token || null);
-      const remoteCards = JSON.parse(remote.text) as Card[];
+      const remote = await fetchRemoteFile(target, token);
+      const remoteCards = parseCards(remote.text);
       if (diff.count && !confirm("Loading from GitHub replaces your unpublished changes in this browser. Continue?")) return;
       onLoaded(remoteCards);
       setStatus({ tone: "ok", text: `Loaded ${remoteCards.length} cards from ${target.owner}/${target.repo}@${target.branch}.` });
@@ -85,13 +51,13 @@ export function PublishPanel({
   async function publish() {
     setBusy("publish");
     setStatus(null);
-    persist();
     try {
       const remote = await fetchRemoteFile(target, token);
-      const remoteCards = JSON.parse(remote.text) as Card[];
+      const remoteCards = parseCards(remote.text);
 
       // If someone else published since this copy was loaded, re-apply our
       // edits card-by-card on top of theirs; stop on overlapping edits.
+      if (blocking.length) throw new Error("Fix the cards listed below before publishing.");
       let next = cards;
       let note = "";
       const remoteSame = remoteCards.length === base.length && remoteCards.every((c, i) => sameCard(c, base[i]));
@@ -124,8 +90,6 @@ export function PublishPanel({
     }
   }
 
-  const tokenUrl = `https://github.com/settings/personal-access-tokens/new`;
-
   return (
     <div className="space-y-5">
       <div className="rounded-2xl border border-slate-200 bg-white p-5">
@@ -135,48 +99,14 @@ export function PublishPanel({
           triggers the deploy workflow, which rebuilds the public site.
         </p>
 
-        <div className="mt-4 grid gap-3 sm:grid-cols-4">
-          {(["owner", "repo", "branch", "path"] as const).map((k) => (
-            <label key={k} className="block">
-              <span className="mb-1 block text-xs font-medium capitalize text-slate-600">{k}</span>
-              <input
-                className="input"
-                value={target[k]}
-                onChange={(e) => setTarget((t) => ({ ...t, [k]: e.target.value }))}
-              />
-            </label>
-          ))}
-        </div>
-
-        <label className="mt-3 block">
-          <span className="mb-1 flex items-center gap-1.5 text-xs font-medium text-slate-600">
-            <KeyRound className="size-3.5" aria-hidden />
-            GitHub token
-          </span>
-          <input
-            className="input font-mono"
-            type="password"
-            autoComplete="off"
-            placeholder="github_pat_..."
-            value={token}
-            onChange={(e) => setToken(e.target.value.trim())}
-          />
-        </label>
-        <div className="mt-2 flex flex-wrap items-center justify-between gap-2 text-xs text-slate-500">
-          <label className="flex items-center gap-1.5">
-            <input type="checkbox" checked={remember} onChange={(e) => setRemember(e.target.checked)} className="accent-emerald-600" />
-            Remember on this device (otherwise kept only for this tab)
-          </label>
-          <a href={tokenUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 font-medium text-navy-700 hover:underline">
-            Create a fine-grained token <ExternalLink className="size-3" aria-hidden />
-          </a>
-        </div>
         <p className="mt-3 flex gap-2 rounded-xl bg-slate-50 p-3 text-xs leading-relaxed text-slate-600">
-          <ShieldAlert className="mt-0.5 size-4 shrink-0 text-amber-600" aria-hidden />
+          <ShieldCheck className="mt-0.5 size-4 shrink-0 text-emerald-600" aria-hidden />
           <span>
-            Use a fine-grained token limited to <b>only this repository</b> with <b>Contents: Read and write</b>, and a
-            short expiry. The token stays in this browser and is sent only to api.github.com. Anyone can open this
-            page, but nobody can publish without a token.
+            Signed in as <b>@{login}</b>. Commits go to{" "}
+            <code className="rounded bg-slate-100 px-1">
+              {target.owner}/{target.repo}@{target.branch}
+            </code>{" "}
+            only. Your token is held in this tab&apos;s memory and is never saved.
           </span>
         </p>
       </div>
@@ -191,8 +121,8 @@ export function PublishPanel({
 
         {blocking.length > 0 && (
           <p className="mt-3 rounded-xl border border-rose-200 bg-rose-50 p-3 text-sm text-rose-800">
-            {blocking.length} visible card(s) have errors: {blocking.map((c) => c.card_name || c.id).join(", ")}. Fix
-            them or mark them as drafts before publishing.
+            {blocking.length} card(s) have errors or unsafe links: {blocking.map((c) => c.card_name || c.id).join(", ")}.
+            Fix them (links must be full https:// URLs) or mark invalid cards as drafts before publishing.
           </p>
         )}
 
@@ -202,7 +132,7 @@ export function PublishPanel({
         </label>
 
         <div className="mt-4 flex flex-wrap gap-2">
-          <button type="button" className="btn-emerald" disabled={!token || !diff.count || blocking.length > 0 || !!busy} onClick={publish}>
+          <button type="button" className="btn-emerald" disabled={!diff.count || blocking.length > 0 || !!busy} onClick={publish}>
             <Rocket className="size-4" aria-hidden />
             {busy === "publish" ? "Publishing…" : `Publish ${diff.count} change${diff.count === 1 ? "" : "s"}`}
           </button>
@@ -242,4 +172,10 @@ function Pill({ n, label }: { n: number; label: string }) {
       <b className="tabular-nums">{n}</b> {label}
     </span>
   );
+}
+
+function parseCards(text: string): Card[] {
+  const data = JSON.parse(text);
+  if (!Array.isArray(data)) throw new Error(`${target.path} on GitHub is not a JSON array of cards.`);
+  return data as Card[];
 }

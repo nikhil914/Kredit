@@ -8,6 +8,9 @@ import { extractCardArray, planImport } from "@/lib/validate";
 
 type Rows = Record<string, unknown>[];
 
+/** Larger files would freeze the tab; the real data set is ~250 KB. */
+const MAX_IMPORT_BYTES = 5 * 1024 * 1024;
+
 function parseInput(text: string, filename = ""): Rows {
   const trimmed = text.trim();
   if (!trimmed) return [];
@@ -35,7 +38,12 @@ export function BulkImport({ cards, onApply }: { cards: Card[]; onApply: (next: 
     [parsed, cards, mode, asDrafts],
   );
 
-  const readFile = async (f: File) => setSource({ name: f.name, text: await f.text() });
+  const [tooBig, setTooBig] = useState(false);
+  const readFile = async (f: File) => {
+    setTooBig(f.size > MAX_IMPORT_BYTES);
+    if (f.size > MAX_IMPORT_BYTES) return;
+    setSource({ name: f.name, text: await f.text() });
+  };
   const removed = plan && mode === "replace" ? cards.filter((c) => !plan.result.some((r) => r.id === c.id)) : [];
 
   return (
@@ -68,6 +76,7 @@ export function BulkImport({ cards, onApply }: { cards: Card[]; onApply: (next: 
           <FileUp className="size-7 text-slate-400" aria-hidden />
           <span className="text-sm font-semibold text-slate-700">Drop a .csv or .json file, or click to choose</span>
           {source && <span className="text-xs text-emerald-700">Loaded: {source.name}</span>}
+          {tooBig && <span className="text-xs text-rose-700">That file is over 5 MB. Split it and import the parts.</span>}
           <input
             type="file"
             accept=".csv,.json,text/csv,application/json"

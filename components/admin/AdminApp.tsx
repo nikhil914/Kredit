@@ -21,6 +21,7 @@ import { BANKS, aed } from "@/lib/cards";
 import { CSV_COLUMNS, cardsToCsv } from "@/lib/csv";
 import type { Card } from "@/lib/types";
 import { BANK_CODES, validateCard } from "@/lib/validate";
+import { SignedInBadge } from "./AdminGate";
 import { BulkImport } from "./BulkImport";
 import { CardEditor } from "./CardEditor";
 import { diffCards, download, toJsonText } from "./diff";
@@ -45,6 +46,7 @@ export function AdminApp({ bundled }: { bundled: Card[] }) {
       const raw = localStorage.getItem(DRAFT_KEY);
       if (raw) {
         const d = JSON.parse(raw) as { base: Card[]; cards: Card[] };
+        if (!Array.isArray(d?.base) || !Array.isArray(d?.cards)) throw new Error("bad draft");
         // Only resume a draft that has real edits; otherwise use the freshly
         // deployed data so a stale copy never shadows newer published cards.
         if (diffCards(d.base, d.cards).count > 0) {
@@ -142,6 +144,7 @@ export function AdminApp({ bundled }: { bundled: Card[] }) {
             ) : (
               <span className="text-slate-500">All changes published</span>
             )}
+            <SignedInBadge />
           </div>
         </div>
         <nav className="mx-auto flex max-w-7xl gap-1 px-4 sm:px-6" aria-label="Admin sections">
