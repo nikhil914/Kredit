@@ -3,6 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [main]
+    paths-ignore: ["pipeline/**", ".github/workflows/crawl-test.yml", ".github/workflows/refresh-cards.yml"]
   workflow_dispatch:
 
 permissions:
