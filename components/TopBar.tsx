@@ -51,13 +51,13 @@ export function TopBar({ onOpenFilters }: { onOpenFilters: () => void }) {
           )}
         </button>
 
-        <label className="relative inline-flex items-center">
+        <label className="relative inline-flex min-w-0 grow items-center sm:grow-0">
           <span className="sr-only">{t("sort")}</span>
           <ArrowUpDown className="pointer-events-none absolute start-3 size-4 text-slate-400" aria-hidden />
           <select
             value={state.sort}
             onChange={(e) => dispatch({ type: "sort", value: e.target.value as SortKey })}
-            className="appearance-none rounded-xl border border-slate-200 bg-white py-2.5 pe-4 ps-9 text-sm font-medium text-slate-700 outline-none focus:border-emerald-500"
+            className="w-full min-w-0 appearance-none truncate rounded-xl border border-slate-200 bg-white py-2.5 pe-4 ps-9 text-sm font-medium text-slate-700 outline-none focus:border-emerald-500"
           >
             {SORTS.map((s) => (
               <option key={s} value={s}>
