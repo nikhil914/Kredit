@@ -35,6 +35,7 @@ def cmd_crawl(a) -> int:
 
     cfg = RunConfig(
         out_dir=Path(a.out), limit=a.limit, crossref=not a.no_crossref, llm=a.llm,
+        skip_sources=tuple(x.strip() for x in a.skip_source.split(",") if x.strip()),
         llm_model=a.model, llm_effort=a.effort,
         fetcher=FetcherConfig(user_agent=a.user_agent, min_delay=a.delay, render_js=a.render,
                               cache_dir=Path(a.cache_dir)),
@@ -102,6 +103,7 @@ def main(argv=None) -> int:
     c.add_argument("--out", default="out")
     c.add_argument("--limit", type=int, default=None, help="max kredit.ae detail pages")
     c.add_argument("--no-crossref", action="store_true")
+    c.add_argument("--skip-source", default="", help="comma-separated cross-reference sources to skip, e.g. finafy")
     c.add_argument("--render", action="store_true", help="render every page with Playwright")
     c.add_argument("--delay", type=float, default=4.0, help="min seconds between requests per host")
     c.add_argument("--user-agent", default=DEFAULT_UA, help="identify yourself; include a contact")
