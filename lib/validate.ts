@@ -61,6 +61,21 @@ export interface ValidationResult {
 
 type Loose = Record<string, unknown>;
 
+/**
+ * True only for absolute https:// URLs with a real hostname and no embedded
+ * credentials. Anything else (javascript:, data:, http:, relative paths)
+ * must never reach an href on the public site.
+ */
+export function isSafeHttpsUrl(u: unknown): u is string {
+  if (typeof u !== "string" || u.length > 2048) return false;
+  try {
+    const url = new URL(u.trim());
+    return url.protocol === "https:" && !url.username && !url.password && /\.[a-z]{2,}$/i.test(url.hostname);
+  } catch {
+    return false;
+  }
+}
+
 const isBlank = (v: unknown) => v === undefined || v === null || (typeof v === "string" && v.trim() === "");
 
 export function slugify(s: string): string {
@@ -202,7 +217,7 @@ export function validateCard(input: Loose): ValidationResult {
   const source_urls = toList(input.source_urls);
   const apply_url = toStr(input.apply_url);
   for (const u of [...source_urls, ...(apply_url ? [apply_url] : [])]) {
-    if (!/^https:\/\//i.test(u)) errors.push(`URL must start with https://: ${u}`);
+    if (!isSafeHttpsUrl(u)) errors.push(`URL must be a full https:// link: ${u}`);
   }
   if (!source_urls.length) warnings.push("no source_urls; add the bank page for traceability");
 
