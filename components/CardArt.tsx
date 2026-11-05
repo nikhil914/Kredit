@@ -28,11 +28,11 @@ export function CardArt({ card, size = "md" }: { card: Card; size?: "xs" | "sm" 
         <div className="absolute start-1.5 top-1/2 h-2 w-2.5 -translate-y-1/2 rounded-[2px] bg-gradient-to-br from-amber-200 to-amber-400" />
       ) : (
       <div className={`absolute inset-0 flex flex-col justify-between ${small ? "p-2" : "p-4"}`}>
-        <div className="flex items-start justify-between">
-          <span className={`font-display font-bold tracking-tight ${small ? "text-[9px]" : "text-sm"}`}>
+        <div className="flex items-start justify-between gap-2">
+          <span className={`min-w-0 truncate font-display font-bold tracking-tight ${small ? "text-[9px]" : "text-sm"}`}>
             {bank?.name ?? card.bank_name}
           </span>
-          <span className={`font-semibold uppercase tracking-widest opacity-80 ${small ? "text-[7px]" : "text-[10px]"}`}>
+          <span className={`shrink-0 font-semibold uppercase tracking-widest opacity-80 ${small ? "text-[7px]" : "text-[10px]"}`}>
             {card.tier}
           </span>
         </div>
@@ -44,8 +44,8 @@ export function CardArt({ card, size = "md" }: { card: Card; size?: "xs" | "sm" 
           }`}
         />
 
-        <div className="flex items-end justify-between">
-          <span className={`max-w-[70%] truncate font-medium opacity-90 ${small ? "text-[7px]" : "text-[11px]"}`}>
+        <div className="flex items-end justify-between gap-2">
+          <span className={`min-w-0 truncate font-medium opacity-90 ${small ? "text-[7px]" : "text-[11px]"}`}>
             {card.card_name}
           </span>
           <NetworkMark network={card.network} small={small} />
@@ -60,14 +60,14 @@ function NetworkMark({ network, small }: { network: Card["network"]; small: bool
   if (!network) return null;
   if (network === "Mastercard") {
     return (
-      <span className={`relative inline-flex ${small ? "h-3 w-5" : "h-6 w-10"}`}>
+      <span className={`relative inline-flex shrink-0 ${small ? "h-3 w-5" : "h-6 w-10"}`}>
         <span className="absolute start-0 top-0 aspect-square h-full rounded-full bg-[#EB001B]" />
         <span className="absolute end-0 top-0 aspect-square h-full rounded-full bg-[#F79E1B] mix-blend-screen" />
       </span>
     );
   }
   return (
-    <span className={`font-display font-extrabold italic tracking-tight ${small ? "text-[9px]" : "text-lg"}`}>
+    <span className={`shrink-0 font-display font-extrabold italic tracking-tight ${small ? "text-[9px]" : "text-lg"}`}>
       {network.toUpperCase()}
     </span>
   );

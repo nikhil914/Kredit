@@ -30,7 +30,7 @@ export function MobileFilters({ open, onClose }: { open: boolean; onClose: () =>
         <button
           type="button"
           onClick={onClose}
-          className="mt-4 w-full rounded-xl bg-navy-900 py-3 text-sm font-semibold text-white"
+          className="sticky bottom-0 mt-4 w-full rounded-xl bg-navy-900 py-3 text-sm font-semibold text-white shadow-lg shadow-slate-900/20"
         >
           {t("showCards")} ({eligibleCount})
         </button>
