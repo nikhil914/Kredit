@@ -1,0 +1,88 @@
+name: Crawl test (blocking check)
+
+# Manual run only. Crawls a few kredit.ae cards to check whether the site
+# answers this runner, and uploads the output. It never commits data.
+on:
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: Number of kredit.ae card pages to fetch
+        default: "5"
+      runner:
+        description: "Runner label: ubuntu-latest, or self-hosted for your own server"
+        default: ubuntu-latest
+
+permissions:
+  contents: read
+
+jobs:
+  crawl:
+    runs-on: ${{ inputs.runner }}
+    timeout-minutes: 45
+    defaults:
+      run:
+        working-directory: pipeline
+    env:
+      UA: "KreditCardResearch/0.1 (+https://github.com/nikhil914/Kredit)"
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install pipeline
+        run: |
+          python -m pip install -q -e '.[render,llm,dev]'
+          python -m playwright install --with-deps chromium
+
+      - name: Unit tests
+        run: python -m pytest -q
+
+      - name: Runner IP and raw responses
+        run: |
+          echo "Runner public IP: $(curl -s https://api.ipify.org)"
+          for u in https://kredit.ae/robots.txt "https://kredit.ae/credit-cards?page=1" \
+                   https://www.creditcardfinder.ae/robots.txt https://www.yallacompare.com/robots.txt; do
+            code=$(curl -s -o /dev/null -w '%{http_code}' -A "$UA" --max-time 30 "$u" || echo ERR)
+            echo "$code  $u"
+            sleep 5
+          done
+
+      - name: Crawl
+        id: crawl
+        continue-on-error: true
+        run: |
+          python -m uae_cards -v crawl --out out --limit "${{ inputs.limit }}" \
+            --no-crossref --render --user-agent "$UA" 2>&1 | tee out-log.txt
+
+      - name: Summary
+        if: always()
+        run: |
+          python - <<'EOF' >> "$GITHUB_STEP_SUMMARY"
+          import json, pathlib
+          p = pathlib.Path("out/report.json")
+          if not p.exists():
+              print("## Crawl test: no report produced (see the Crawl step log)")
+              raise SystemExit
+          r = json.loads(p.read_text())
+          cards = json.loads(pathlib.Path("out/cards.json").read_text()) if pathlib.Path("out/cards.json").exists() else []
+          errors = r.get("errors", [])
+          print(f"## Crawl test: {len(cards)} cards parsed, {len(errors)} errors")
+          for c in cards:
+              print(f"- {c.get('bank_name')} | {c.get('card_name')} | fee {c.get('annual_fee_aed')}")
+          if errors:
+              print("\n### Errors")
+              for e in errors[:30]:
+                  print(f"- `{e.get('url', e.get('source', ''))}`: {e.get('error')}")
+          EOF
+          cat "$GITHUB_STEP_SUMMARY"
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: crawl-test-output
+          path: |
+            pipeline/out/
+            pipeline/out-log.txt
+          if-no-files-found: warn
