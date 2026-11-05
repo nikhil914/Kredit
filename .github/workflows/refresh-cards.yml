@@ -55,7 +55,7 @@ jobs:
 
       - name: Crawl
         working-directory: pipeline
-        run: python -m uae_cards -v crawl --out out --render --user-agent "$UA" 2>&1 | tee crawl-log.txt
+        run: python -m uae_cards -v crawl --out out --render --skip-source finafy --user-agent "$UA" 2>&1 | tee crawl-log.txt
 
       - name: Merge into data/cards.json
         id: sync

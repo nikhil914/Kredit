@@ -24,6 +24,7 @@ class RunConfig:
     out_dir: Path = Path("out")
     limit: Optional[int] = None
     crossref: bool = True
+    skip_sources: tuple[str, ...] = ()
     llm: bool = False
     llm_model: str = "claude-opus-5-5"
     llm_effort: str = "medium"
@@ -124,6 +125,8 @@ def run(cfg: RunConfig) -> RunResult:
         secondaries: list[CardDraft] = []
         if cfg.crossref:
             for src in all_crossref_sources():
+                if src.name in cfg.skip_sources or src.name.split(".")[0] in cfg.skip_sources:
+                    continue
                 try:
                     s_urls = src.discover(fetcher)
                 except Exception as e:  # noqa: BLE001
