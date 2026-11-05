@@ -67,6 +67,7 @@ export function CardTile({ card, rank }: { card: Card; rank?: number }) {
   const compareFull = state.compare.length >= MAX_COMPARE && !selected;
   const r = rewards.get(card.id)!;
   const fee = feeCategory(card);
+  const networkTier = [card.network, card.tier].filter(Boolean).join(" ");
   const bankName = state.locale === "ar" ? BANKS[card.bank_name]?.nameAr : BANKS[card.bank_name]?.name;
 
   return (
@@ -96,7 +97,7 @@ export function CardTile({ card, rank }: { card: Card; rank?: number }) {
         <BankMono card={card} />
         <div className="min-w-0 flex-1">
           <p className="truncate text-xs font-medium text-slate-500">{bankName}</p>
-          <h3 className="[unicode-bidi:plaintext] ltr:text-left rtl:text-right font-display text-[15px] font-bold leading-snug text-navy-900">{card.card_name}</h3>
+          <h3 className="[unicode-bidi:plaintext] ltr:text-left rtl:text-right font-display text-[15px] font-bold leading-snug text-navy-900 [overflow-wrap:anywhere]">{card.card_name}</h3>
           <div className="mt-1.5 flex flex-wrap gap-1.5">
             <span
               className={`inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[11px] font-semibold ${
@@ -106,9 +107,11 @@ export function CardTile({ card, rank }: { card: Card; rank?: number }) {
               {card.is_islamic && <Moon className="size-3" aria-hidden />}
               {card.is_islamic ? t("islamicBadge") : t("conventionalBadge")}
             </span>
-            <span className="rounded-full bg-slate-100 px-2 py-0.5 text-[11px] font-medium text-slate-600">
-              {card.network} {card.tier}
-            </span>
+            {networkTier && (
+              <span className="rounded-full bg-slate-100 px-2 py-0.5 text-[11px] font-medium text-slate-600">
+                {networkTier}
+              </span>
+            )}
           </div>
         </div>
       </header>
@@ -135,7 +138,7 @@ export function CardTile({ card, rank }: { card: Card; rank?: number }) {
               <span className="mt-0.5 grid size-6 shrink-0 place-items-center rounded-lg bg-navy-50 text-navy-700">
                 <Icon className="size-3.5" aria-hidden />
               </span>
-              <span className="[unicode-bidi:plaintext] ltr:text-left rtl:text-right">
+              <span className="min-w-0 [overflow-wrap:anywhere] [unicode-bidi:plaintext] ltr:text-left rtl:text-right">
                 {perk}
                 {cap && (
                   <span className="ms-1.5 inline-flex items-center rounded-md bg-amber-50 px-1.5 py-0.5 text-[11px] font-semibold text-amber-800">
@@ -204,9 +207,9 @@ export function CardTile({ card, rank }: { card: Card; rank?: number }) {
       </div>
 
       {/* CTAs */}
-      <div className="mt-auto flex gap-2 pt-4">
+      <div className="mt-auto flex flex-wrap gap-2 pt-4">
         <label
-          className={`inline-flex flex-1 cursor-pointer items-center justify-center gap-2 rounded-xl border px-3 py-2.5 text-sm font-semibold transition ${
+          className={`inline-flex min-w-0 grow basis-28 cursor-pointer items-center justify-center gap-2 rounded-xl border px-3 py-2.5 text-sm font-semibold transition ${
             selected
               ? "border-emerald-600 bg-emerald-50 text-emerald-800"
               : compareFull
@@ -236,15 +239,15 @@ export function CardTile({ card, rank }: { card: Card; rank?: number }) {
           target="_blank"
           rel="noopener noreferrer"
           aria-disabled={!eligible}
-          className={`inline-flex flex-[1.6] items-center justify-center gap-1.5 rounded-xl px-3 py-2.5 text-center text-sm font-semibold transition ${
+          className={`inline-flex min-w-0 grow-[1.6] basis-60 items-center justify-center gap-1.5 rounded-xl px-3 py-2.5 text-center text-sm font-semibold leading-tight transition ${
             eligible
               ? "bg-navy-900 text-white hover:bg-navy-700"
               : "pointer-events-none bg-slate-200 text-slate-500"
           }`}
         >
-          {eligible ? <CircleCheck className="size-4" aria-hidden /> : <Lock className="size-4" aria-hidden />}
-          <span className="truncate">{t("apply")}</span>
-          {eligible && <ExternalLink className="size-3.5 opacity-60 rtl:-scale-x-100" aria-hidden />}
+          {eligible ? <CircleCheck className="size-4 shrink-0" aria-hidden /> : <Lock className="size-4 shrink-0" aria-hidden />}
+          <span className="min-w-0 text-balance">{t("apply")}</span>
+          {eligible && <ExternalLink className="size-3.5 shrink-0 opacity-60 rtl:-scale-x-100" aria-hidden />}
         </a>
       </div>
     </article>
@@ -253,9 +256,9 @@ export function CardTile({ card, rank }: { card: Card; rank?: number }) {
 
 function Metric({ label, value, note, good }: { label: string; value: string; note?: string; good?: boolean }) {
   return (
-    <div className="rounded-xl bg-slate-50 px-2.5 py-2">
-      <dt className="text-[10.5px] font-medium uppercase tracking-wide text-slate-500">{label}</dt>
-      <dd className={`mt-0.5 font-display text-[13px] font-bold tabular-nums ${good ? "text-emerald-700" : "text-navy-900"}`}>
+    <div className="flex min-w-0 flex-col rounded-xl bg-slate-50 px-2.5 py-2">
+      <dt className="text-[10.5px] font-medium uppercase leading-tight tracking-wide text-slate-500">{label}</dt>
+      <dd className={`mt-auto pt-1 font-display text-[13px] font-bold tabular-nums ${good ? "text-emerald-700" : "text-navy-900"}`}>
         {value}
       </dd>
       {note && <dd className="text-[10.5px] font-semibold text-emerald-700">{note}</dd>}
@@ -266,11 +269,11 @@ function Metric({ label, value, note, good }: { label: string; value: string; no
 function XrayRow({ label, value, warn }: { label: string; value: string; warn?: boolean }) {
   return (
     <div className="flex items-start justify-between gap-3">
-      <dt className="flex items-center gap-1.5 text-slate-500">
+      <dt className="flex shrink-0 items-center gap-1.5 text-slate-500">
         {warn && <TriangleAlert className="size-3.5 shrink-0 text-amber-500" aria-hidden />}
         {label}
       </dt>
-      <dd className="[unicode-bidi:plaintext] ltr:text-right rtl:text-left font-semibold text-slate-800">{value}</dd>
+      <dd className="min-w-0 [overflow-wrap:anywhere] [unicode-bidi:plaintext] ltr:text-right rtl:text-left font-semibold text-slate-800">{value}</dd>
     </div>
   );
 }

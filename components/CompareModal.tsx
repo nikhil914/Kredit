@@ -188,16 +188,16 @@ export function CompareModal() {
           <table className="w-full min-w-[640px] border-collapse text-sm">
             <thead className="sticky top-0 z-10 bg-white/95 backdrop-blur">
               <tr>
-                <th className="w-44 p-4" />
+                <th className="sticky start-0 z-[1] w-28 bg-white p-4 sm:w-44" />
                 {cards.map((c) => (
-                  <th key={c.id} className="p-4 align-top">
+                  <th key={c.id} className="min-w-[160px] p-4 align-top">
                     <div className="mx-auto max-w-[180px]">
                       <CardArt card={c} size="sm" />
                     </div>
                     <p className="mt-2 text-xs font-medium text-slate-500">
                       {L === "ar" ? BANKS[c.bank_name]?.nameAr : BANKS[c.bank_name]?.name}
                     </p>
-                    <p className="font-display text-sm font-bold text-navy-900">{c.card_name}</p>
+                    <p className="font-display text-sm font-bold text-navy-900 [overflow-wrap:anywhere]">{c.card_name}</p>
                     <span
                       className={`mt-1 inline-block rounded-full px-2 py-0.5 text-[11px] font-semibold ${
                         c.is_islamic ? "bg-emerald-50 text-emerald-700" : "bg-slate-100 text-slate-600"
@@ -214,7 +214,7 @@ export function CompareModal() {
                 <SectionRows key={s.title} title={s.title} span={cards.length + 1}>
                   {s.rows.map((row) => (
                     <tr key={String(row.label)} className="border-t border-slate-100">
-                      <th scope="row" className="p-3 ps-5 text-start text-xs font-medium text-slate-500">
+                      <th scope="row" className="sticky start-0 z-[1] bg-white p-3 ps-5 text-start text-xs font-medium text-slate-500 shadow-[1px_0_0_0_var(--color-slate-100)] rtl:shadow-[-1px_0_0_0_var(--color-slate-100)]">
                         {label(String(row.label))}
                       </th>
                       {cards.map((c) => (
@@ -230,16 +230,18 @@ export function CompareModal() {
           </table>
         </div>
 
-        <div className="flex gap-2 border-t border-slate-200 p-4">
+        <div className="flex gap-2 border-t border-slate-200 p-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] sm:p-4">
           {cards.map((c) => (
             <a
               key={c.id}
               href={c.apply_url ?? c.source_urls[0]}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 truncate rounded-xl bg-navy-900 px-3 py-2.5 text-center text-xs font-semibold text-white hover:bg-navy-700 sm:text-sm"
+              title={`${t("apply")}: ${c.card_name}`}
+              className="flex min-w-0 flex-1 flex-col items-center rounded-xl bg-navy-900 px-3 py-2 text-center text-white transition hover:bg-navy-700"
             >
-              {t("apply")} · {BANKS[c.bank_name]?.mono}
+              <span className="text-xs font-semibold sm:text-sm">{t("applyShort")}</span>
+              <span className="w-full truncate text-[10.5px] font-medium text-white/70 sm:text-xs">{c.card_name}</span>
             </a>
           ))}
         </div>
@@ -254,9 +256,9 @@ function SectionRows({ title, span, children }: { title: string; span: number; c
       <tr>
         <th
           colSpan={span}
-          className="bg-slate-50 px-5 py-2 text-start text-[11px] font-bold uppercase tracking-wider text-slate-500"
+          className="bg-slate-50 py-2 text-start text-[11px] font-bold uppercase tracking-wider text-slate-500"
         >
-          {title}
+          <span className="sticky start-0 inline-block px-5">{title}</span>
         </th>
       </tr>
       {children}

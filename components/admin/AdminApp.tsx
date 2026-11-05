@@ -133,12 +133,14 @@ export function AdminApp({ bundled }: { bundled: Card[] }) {
                 <button
                   type="button"
                   className="btn-secondary !py-1.5"
+                  aria-label="Discard changes"
                   onClick={() => confirm("Discard all unpublished changes in this browser?") && update(base, "Changes discarded")}
                 >
-                  <RotateCcw className="size-3.5" aria-hidden /> Discard
+                  <RotateCcw className="size-3.5" aria-hidden /> <span className="hidden sm:inline">Discard</span>
                 </button>
                 <button type="button" className="btn-emerald !py-1.5" onClick={() => setTab("publish")}>
-                  Review & publish
+                  <span className="sm:hidden">Publish ({diff.count})</span>
+                  <span className="hidden sm:inline">Review & publish</span>
                 </button>
               </>
             ) : (
@@ -147,14 +149,14 @@ export function AdminApp({ bundled }: { bundled: Card[] }) {
             <SignedInBadge />
           </div>
         </div>
-        <nav className="mx-auto flex max-w-7xl gap-1 px-4 sm:px-6" aria-label="Admin sections">
+        <nav className="mx-auto flex max-w-7xl gap-1 overflow-x-auto px-4 sm:px-6" aria-label="Admin sections">
           {tabs.map(([id, label, n]) => (
             <button
               key={id}
               type="button"
               onClick={() => setTab(id)}
               aria-current={tab === id ? "page" : undefined}
-              className={`border-b-2 px-3 py-2.5 text-sm font-semibold transition ${
+              className={`shrink-0 whitespace-nowrap border-b-2 px-3 py-2.5 text-sm font-semibold transition ${
                 tab === id ? "border-emerald-600 text-navy-900" : "border-transparent text-slate-500 hover:text-slate-800"
               }`}
             >
@@ -188,7 +190,7 @@ export function AdminApp({ bundled }: { bundled: Card[] }) {
 
             <div className="overflow-x-auto">
               <table className="w-full min-w-[820px] text-sm">
-                <thead className="bg-slate-50 text-start text-xs uppercase tracking-wide text-slate-500">
+                <thead className="whitespace-nowrap bg-slate-50 text-start text-xs uppercase tracking-wide text-slate-500">
                   <tr>
                     <th className="p-3 text-start font-semibold">Card</th>
                     <th className="p-3 text-start font-semibold">Type</th>
@@ -206,11 +208,11 @@ export function AdminApp({ bundled }: { bundled: Card[] }) {
                     const change = changeOf(c.id);
                     return (
                       <tr key={c.id} className={`border-t border-slate-100 ${c.hidden ? "bg-slate-50/70 text-slate-500" : ""}`}>
-                        <td className="p-3">
+                        <td className="min-w-[240px] p-3">
                           <button type="button" className="text-start" onClick={() => setEditing({ card: c })}>
                             <span className="block font-semibold text-navy-900 hover:underline">{c.card_name || c.id}</span>
                             <span className="text-xs text-slate-500">
-                              {BANKS[c.bank_name]?.name ?? c.bank_name ?? "?"} · {c.network} {c.tier}
+                              {[BANKS[c.bank_name]?.name ?? c.bank_name ?? "?", [c.network, c.tier].filter(Boolean).join(" ")].filter(Boolean).join(" · ")}
                             </span>
                           </button>
                           <span className="ms-2 inline-flex gap-1 align-middle">
@@ -223,12 +225,12 @@ export function AdminApp({ bundled }: { bundled: Card[] }) {
                           </span>
                         </td>
                         <td className="p-3">{c.is_islamic ? "Islamic" : "Conventional"}</td>
-                        <td className="p-3 text-end tabular-nums">{c.min_salary_aed != null ? aed(c.min_salary_aed) : "—"}</td>
-                        <td className="p-3 text-end tabular-nums">{c.is_free_for_life ? "Free" : c.annual_fee_aed != null ? aed(c.annual_fee_aed) : "—"}</td>
+                        <td className="whitespace-nowrap p-3 text-end tabular-nums">{c.min_salary_aed != null ? aed(c.min_salary_aed) : "—"}</td>
+                        <td className="whitespace-nowrap p-3 text-end tabular-nums">{c.is_free_for_life ? "Free" : c.annual_fee_aed != null ? aed(c.annual_fee_aed) : "—"}</td>
                         <td className="p-3">{c.reward_type?.join(", ").replace("_", " ")}</td>
-                        <td className="p-3 tabular-nums text-slate-500">{c.last_verified ?? "—"}</td>
+                        <td className="whitespace-nowrap p-3 tabular-nums text-slate-500">{c.last_verified ?? "—"}</td>
                         <td className="p-3">
-                          <span className={`inline-flex items-center gap-1 text-xs font-medium ${s.cls}`} title={s.tip}>
+                          <span className={`inline-flex items-center gap-1 whitespace-nowrap text-xs font-medium ${s.cls}`} title={s.tip}>
                             <s.Icon className="size-4" aria-hidden /> {s.label}
                           </span>
                         </td>
