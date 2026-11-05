@@ -78,3 +78,20 @@ pytest -q
 - The selectors are label-based and were written from kredit.ae's visible page text plus the URL patterns of all four sites. The build sandbox could not reach the sites directly, so the test fixtures are hand-written to mirror the observed labels. Run `crawl --limit 5 -v` first and check `report.json`: missing fields across many cards mean a label changed. Fix it in `sources/base.py:LABELS` or the source module.
 - The finafy / creditcardfinder / yallacompare parsers are generic (label aliases). They fill gaps; they are not trusted over kredit.ae.
 - If a page is client-rendered and the static HTML has no content, the pipeline retries it once with Playwright (needs the `render` extra).
+
+## Weekly refresh (GitHub Actions)
+
+`.github/workflows/refresh-cards.yml` runs every Saturday 22:00 UTC (and on demand from the Actions tab):
+
+1. Crawls kredit.ae and the cross-reference sites with Playwright.
+2. `python -m uae_cards sync-site` merges `out/cards_extended.json` into `data/cards.json`:
+   - a value the crawl did not find keeps the site's value; fields the crawl does not produce (`art`, `hidden`) are kept;
+   - cards no longer on the source are hidden, not deleted; hidden cards stay hidden when they come back;
+   - `data/overrides.json` (`{"card-id": {"field": value}}`) is applied last, so manual corrections survive refreshes.
+3. Quality gates stop the run, and write nothing, when the crawl finds under 90% of the site's cards, loses every card of a bank, has more than 25% page errors, or a key field (fee, interest, FX, salary) goes missing on more than 20% of cards.
+4. The site validator, type check and build run on the result.
+5. A pull request `Update card data` is opened (or updated) on branch `data/card-refresh`, with a field-by-field diff. Merging it deploys the site.
+
+A failed run opens or comments on the issue "Card data refresh failed". To run on your own server instead of GitHub's, register it as a self-hosted runner and start the workflow with `runner: self-hosted`.
+
+The repository setting "Allow GitHub Actions to create and approve pull requests" (Settings > Actions > General) must be on for step 5.

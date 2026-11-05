@@ -1,0 +1,113 @@
+name: Refresh card data
+
+# Weekly crawl. Opens (or updates) a pull request with the changes to
+# data/cards.json. Nothing goes live until that PR is merged.
+on:
+  schedule:
+    - cron: "0 22 * * 6" # Saturday 22:00 UTC = Sunday 02:00 UAE
+  workflow_dispatch:
+    inputs:
+      runner:
+        description: "Runner label: ubuntu-latest, or self-hosted for your own server"
+        default: ubuntu-latest
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
+concurrency:
+  group: refresh-cards
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ${{ inputs.runner || 'ubuntu-latest' }}
+    timeout-minutes: 120
+    defaults:
+      run:
+        shell: bash
+    env:
+      UA: "KreditCardResearch/0.1 (+https://github.com/nikhil914/Kredit)"
+      RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install
+        run: |
+          npm ci
+          cd pipeline
+          python -m pip install -q -e '.[render,dev]'
+          python -m playwright install --with-deps chromium
+
+      - name: Unit tests
+        working-directory: pipeline
+        run: python -m pytest -q --deselect tests/test_pipeline.py::test_llm_extract_with_fake_client
+
+      - name: Crawl
+        working-directory: pipeline
+        run: python -m uae_cards -v crawl --out out --render --user-agent "$UA" 2>&1 | tee crawl-log.txt
+
+      - name: Merge into data/cards.json
+        id: sync
+        working-directory: pipeline
+        run: |
+          python -m uae_cards sync-site --run-url "$RUN_URL"
+          cat out/summary.md >> "$GITHUB_STEP_SUMMARY"
+          if git diff --quiet -- ../data/cards.json; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Validate and build the site
+        if: steps.sync.outputs.changed == 'true'
+        run: |
+          npm run import -- data/cards.json --dry-run
+          npm run lint
+          npm run build
+
+      - name: Open or update the pull request
+        if: steps.sync.outputs.changed == 'true'
+        uses: peter-evans/create-pull-request@v7
+        with:
+          branch: data/card-refresh
+          delete-branch: true
+          add-paths: data/cards.json
+          commit-message: Update card data from weekly crawl
+          title: Update card data
+          body-path: pipeline/out/summary.md
+          labels: card-data
+
+      - name: Report failure
+        if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          title="Card data refresh failed"
+          body="Run: $RUN_URL"
+          if [ -f pipeline/out/summary.md ]; then body="$(cat pipeline/out/summary.md)"; fi
+          num=$(gh issue list --state open --search "in:title \"$title\"" --json number --jq '.[0].number')
+          if [ -n "$num" ]; then
+            gh issue comment "$num" --body "$body"
+          else
+            gh issue create --title "$title" --body "$body"
+          fi
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: card-refresh-output
+          path: |
+            pipeline/out/
+            pipeline/crawl-log.txt
+          if-no-files-found: warn

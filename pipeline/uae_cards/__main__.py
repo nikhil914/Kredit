@@ -2,6 +2,7 @@
 
   python -m uae_cards crawl --out out/ [--limit 10] [--no-crossref] [--llm] [--render]
   python -m uae_cards parse-file page.html --url https://kredit.ae/credit-cards/<slug>/details [--llm]
+  python -m uae_cards sync-site        # merge out/cards_extended.json into ../data/cards.json
   python -m uae_cards schema            # print the strict CreditCard JSON schema
 """
 
@@ -73,6 +74,13 @@ def cmd_parse_file(a) -> int:
     return 0
 
 
+def cmd_sync_site(a) -> int:
+    from .sitesync import run_cli
+
+    return run_cli(Path(a.crawl), Path(a.site), Path(a.report) if a.report else None,
+                   Path(a.overrides) if a.overrides else None, Path(a.summary), a.run_url)
+
+
 def cmd_schema(_a) -> int:
     from .schema import CreditCard
 
@@ -106,6 +114,15 @@ def main(argv=None) -> int:
     f.add_argument("--url", required=True, help="the page's original URL (selects the parser)")
     llm_args(f)
     f.set_defaults(fn=cmd_parse_file)
+
+    y = sub.add_parser("sync-site", help="merge a crawl into the site's data/cards.json (with quality gates)")
+    y.add_argument("--crawl", default="out/cards_extended.json")
+    y.add_argument("--report", default="out/report.json")
+    y.add_argument("--site", default="../data/cards.json")
+    y.add_argument("--overrides", default="../data/overrides.json")
+    y.add_argument("--summary", default="out/summary.md")
+    y.add_argument("--run-url", default=None)
+    y.set_defaults(fn=cmd_sync_site)
 
     s = sub.add_parser("schema", help="print the CreditCard JSON schema")
     s.set_defaults(fn=cmd_schema)
