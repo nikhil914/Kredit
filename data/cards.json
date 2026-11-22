@@ -42,8 +42,7 @@
     },
     "source_urls": [
       "https://kredit.ae/credit-cards/enbd-noon-one-credit-card/details",
-      "https://cdn.emiratesnbd.com/enbd/files/pdf/kfs_credit_cards_horizontal_em_new.pdf",
-      "https://creditcardfinder.ae/credit-card/emirates-nbd-noon-one-visa-credit-card/"
+      "https://cdn.emiratesnbd.com/enbd/files/pdf/kfs_credit_cards_horizontal_em_new.pdf"
     ],
     "first_year_free": true,
     "min_monthly_spend_aed": null,
@@ -52,7 +51,7 @@
     "ecosystem_tags": [
       "noon"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "enbd-dnata-platinum-credit-card",
@@ -76,7 +75,7 @@
     ],
     "lifestyle_perks": {
       "lounge_access": "4 visits a year via Mastercard Travel Pass.",
-      "cinema_offers": null,
+      "cinema_offers": "Merchant",
       "golf_access": false,
       "valet_parking": false,
       "valet_locations": []
@@ -102,7 +101,7 @@
     "ecosystem_tags": [
       "airport_lounge"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "enbd-skywards-signature-credit-card",
@@ -162,7 +161,7 @@
       "valet",
       "golf"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "enbd-duo-credit-card",
@@ -217,7 +216,7 @@
       "cinema_bogo",
       "airport_lounge"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "enbd-u-by-emaar-infinite-credit-card",
@@ -278,7 +277,7 @@
       "valet",
       "golf"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "enbd-u-by-emaar-family-credit-card",
@@ -330,7 +329,7 @@
     "ecosystem_tags": [
       "cinema_bogo"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "enbd-skywards-infinite-credit-card",
@@ -395,7 +394,7 @@
       "to": "#7A5C2E",
       "ink": "light"
     },
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "fab-gems-world-credit-card",
@@ -445,10 +444,9 @@
     "apply_url": null,
     "ecosystem_tags": [
       "noon",
-      "careem",
       "airport_lounge"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "fab-share-platinum-credit-card",
@@ -499,7 +497,7 @@
       "maf_share",
       "noon"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "fab-share-signature-credit-card",
@@ -551,7 +549,7 @@
       "maf_share",
       "noon"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "fab-share-infinite-credit-card",
@@ -605,7 +603,7 @@
       "noon",
       "airport_lounge"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "mashreq-noon-credit-card",
@@ -660,7 +658,7 @@
     "ecosystem_tags": [
       "noon"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "emirates-islamic-skywards-signature-credit-card",
@@ -718,7 +716,7 @@
       "valet",
       "golf"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "emirates-islamic-skywards-infinite-credit-card",
@@ -778,7 +776,7 @@
       "valet",
       "golf"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "emirates-islamic-switch-cashback-credit-card",
@@ -839,7 +837,7 @@
       "valet",
       "golf"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "cbd-visa-infinite-credit-card",
@@ -898,7 +896,7 @@
       "valet",
       "golf"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "cbd-super-saver-credit-card",
@@ -951,7 +949,7 @@
       "noon",
       "airport_lounge"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "adcb-365-cashback-credit-card",
@@ -1010,7 +1008,7 @@
       "to": "#B91C1C",
       "ink": "light"
     },
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "enbd-darna-visa-signature-credit-card",
@@ -1056,8 +1054,7 @@
     },
     "source_urls": [
       "https://kredit.ae/credit-cards/enbd-darna-visa-signature-credit-card/details",
-      "https://cdn.emiratesnbd.com/enbd/files/pdf/kfs_credit_cards_horizontal_em_new.pdf",
-      "https://creditcardfinder.ae/credit-card/emirates-nbd-darna-visa-signature-credit-card/"
+      "https://cdn.emiratesnbd.com/enbd/files/pdf/kfs_credit_cards_horizontal_em_new.pdf"
     ],
     "first_year_free": null,
     "min_monthly_spend_aed": null,
@@ -1067,7 +1064,7 @@
       "aldar_darna",
       "airport_lounge"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "enbd-share-signature-credit-card",
@@ -1113,8 +1110,7 @@
     },
     "source_urls": [
       "https://kredit.ae/credit-cards/enbd-share-signature-credit-card/details",
-      "https://cdn.emiratesnbd.com/enbd/files/pdf/kfs_credit_cards_horizontal_em_new.pdf",
-      "https://creditcardfinder.ae/credit-card/emirates-nbd-share-visa-signature-credit-card/"
+      "https://cdn.emiratesnbd.com/enbd/files/pdf/kfs_credit_cards_horizontal_em_new.pdf"
     ],
     "first_year_free": true,
     "min_monthly_spend_aed": null,
@@ -1124,7 +1120,7 @@
       "maf_share",
       "airport_lounge"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "enbd-share-infinite-credit-card",
@@ -1182,7 +1178,7 @@
       "airport_lounge",
       "golf"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "enbd-voyager-world-credit-card",
@@ -1242,7 +1238,7 @@
       "valet",
       "golf"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "enbd-darna-infinite-privilege-credit-card",
@@ -1298,7 +1294,7 @@
       "aldar_darna",
       "airport_lounge"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "rakbank-rakislamic-platinum-credit-card",
@@ -1349,7 +1345,7 @@
     "ecosystem_tags": [
       "noon"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "mashreq-aura-credit-card",
@@ -1362,7 +1358,7 @@
     "annual_fee_aed": 0,
     "is_free_for_life": true,
     "annual_fee_waiver_condition": null,
-    "monthly_interest_rate_percent": null,
+    "monthly_interest_rate_percent": 3.85,
     "fx_fee_percent": 2.89,
     "welcome_bonus": "AED 500 — Spend AED 5,000 in the first two months after issuance. The bonus is credited to your Aura account by the end of the third month",
     "reward_type": [
@@ -1394,7 +1390,8 @@
     },
     "source_urls": [
       "https://kredit.ae/credit-cards/mashreq-aura-credit-card/details",
-      "https://www.mashreq.com/-/jssmedia/pdfs/aura-pdf/mashreq-cards-aura-kfs-en-ar.ashx"
+      "https://www.mashreq.com/-/jssmedia/pdfs/aura-pdf/mashreq-cards-aura-kfs-en-ar.ashx",
+      "https://creditcardfinder.ae/credit-card/mashreq-aura-credit-card/"
     ],
     "first_year_free": true,
     "min_monthly_spend_aed": null,
@@ -1404,7 +1401,7 @@
       "noon",
       "airport_lounge"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "mashreq-aura-world-credit-card",
@@ -1417,7 +1414,7 @@
     "annual_fee_aed": 525,
     "is_free_for_life": false,
     "annual_fee_waiver_condition": null,
-    "monthly_interest_rate_percent": null,
+    "monthly_interest_rate_percent": 3.85,
     "fx_fee_percent": 2.89,
     "welcome_bonus": "AED 500 — Spend AED 10,000 in the first two months after issuance. The bonus is credited to your Aura account by the end of the third month",
     "reward_type": [
@@ -1449,7 +1446,8 @@
     },
     "source_urls": [
       "https://kredit.ae/credit-cards/mashreq-aura-world-credit-card/details",
-      "https://www.mashreq.com/-/jssmedia/pdfs/aura-pdf/mashreq-cards-aura-kfs-en-ar.ashx"
+      "https://www.mashreq.com/-/jssmedia/pdfs/aura-pdf/mashreq-cards-aura-kfs-en-ar.ashx",
+      "https://creditcardfinder.ae/credit-card/mashreq-aura-world-credit-card/"
     ],
     "first_year_free": null,
     "min_monthly_spend_aed": null,
@@ -1459,7 +1457,7 @@
       "noon",
       "airport_lounge"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "mashreq-aura-world-elite-credit-card",
@@ -1514,7 +1512,7 @@
       "noon",
       "airport_lounge"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "liv-cashback-plus-credit-card",
@@ -1573,7 +1571,7 @@
       "noon",
       "airport_lounge"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "dib-skywards-signature-credit-card",
@@ -1590,6 +1588,7 @@
     "fx_fee_percent": 3.7,
     "welcome_bonus": "Activation bonus",
     "reward_type": [
+      "Cashback",
       "AirMiles"
     ],
     "key_benefits": [
@@ -1613,12 +1612,13 @@
       "utilities_telecom_percent": null,
       "education_percent": null,
       "monthly_cap_aed": null,
-      "international_percent": null,
+      "international_percent": 3.7,
       "other_percent": null
     },
     "source_urls": [
       "https://kredit.ae/credit-cards/dib-skywards-signature-credit-card/details",
-      "https://www.dib.ae/docs/default-source/cpr/kfs/cards-kfs-dib-new-credit-cards-cm-sign-reqd-static.pdf?sfvrsn=799c3157_43"
+      "https://www.dib.ae/docs/default-source/cpr/kfs/cards-kfs-dib-new-credit-cards-cm-sign-reqd-static.pdf?sfvrsn=799c3157_43",
+      "https://creditcardfinder.ae/credit-card/dib-emirates-skywards-signature-covered-credit-card/"
     ],
     "first_year_free": null,
     "min_monthly_spend_aed": null,
@@ -1630,7 +1630,7 @@
       "airport_lounge",
       "valet"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "dib-skywards-infinite-credit-card",
@@ -1687,7 +1687,7 @@
       "airport_lounge",
       "valet"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "liv-tamayaz-world-card",
@@ -1731,8 +1731,7 @@
     },
     "source_urls": [
       "https://kredit.ae/credit-cards/liv-tamayaz-world-card/details",
-      "https://www.liv.me/-/media/liv/website/pdf/kfs/liv_tamayaz_credit_card_kfs.pdf",
-      "https://creditcardfinder.ae/credit-card/liv-tamayaz-world-credit-card/"
+      "https://www.liv.me/-/media/liv/website/pdf/kfs/liv_tamayaz_credit_card_kfs.pdf"
     ],
     "first_year_free": null,
     "min_monthly_spend_aed": 1500,
@@ -1744,7 +1743,7 @@
       "cinema_bogo",
       "airport_lounge"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "enbd-marriott-bonvoy-world-elite",
@@ -1770,7 +1769,7 @@
     ],
     "lifestyle_perks": {
       "lounge_access": "14 visits a year for you and one guest via Mastercard Travel Pass.",
-      "cinema_offers": null,
+      "cinema_offers": "Merchant",
       "golf_access": true,
       "valet_parking": false,
       "valet_locations": []
@@ -1797,7 +1796,7 @@
       "airport_lounge",
       "golf"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "enbd-u-by-emaar-signature-credit-card",
@@ -1854,7 +1853,7 @@
       "airport_lounge",
       "golf"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "enbd-visa-flexi-credit-card",
@@ -1908,7 +1907,7 @@
     "ecosystem_tags": [
       "careem"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "enbd-u-by-emaar-infinite-emirati-credit-card",
@@ -1970,7 +1969,7 @@
       "valet",
       "golf"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "enbd-etihad-guest-visa-elevate-credit-card",
@@ -2026,7 +2025,7 @@
       "airport_lounge",
       "valet"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "emirates-islamic-fc-barcelona-credit-card",
@@ -2085,7 +2084,7 @@
       "airport_lounge",
       "valet"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "cbd-one-credit-card",
@@ -2142,7 +2141,7 @@
       "careem",
       "airport_lounge"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "rakbank-rakislamic-watani-credit-card",
@@ -2198,7 +2197,7 @@
       "noon",
       "airport_lounge"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "adcb-lulu-titanium-credit-card",
@@ -2240,8 +2239,7 @@
     },
     "source_urls": [
       "https://kredit.ae/credit-cards/adcb-lulu-titanium-credit-card/details",
-      "https://www.adcb.com/en/multimedia/kfs/credit-cards-kfs.pdf",
-      "https://creditcardfinder.ae/credit-card/adcb-lulu-titanium-credit-card/"
+      "https://www.adcb.com/en/multimedia/kfs/credit-cards-kfs.pdf"
     ],
     "first_year_free": true,
     "min_monthly_spend_aed": null,
@@ -2251,7 +2249,7 @@
       "noon",
       "talabat"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "adcb-touchpoints-infinite-credit-card",
@@ -2296,8 +2294,7 @@
     },
     "source_urls": [
       "https://kredit.ae/credit-cards/adcb-touchpoints-infinite-credit-card/details",
-      "https://www.adcb.com/en/multimedia/kfs/credit-cards-kfs.pdf",
-      "https://creditcardfinder.ae/credit-card/adcb-touchpoints-infinite-credit-card/"
+      "https://www.adcb.com/en/multimedia/kfs/credit-cards-kfs.pdf"
     ],
     "first_year_free": null,
     "min_monthly_spend_aed": null,
@@ -2308,7 +2305,7 @@
       "airport_lounge",
       "golf"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "adcb-islamic-emirati-credit-card",
@@ -2363,7 +2360,7 @@
       "noon",
       "airport_lounge"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "adcb-private-world-elite-credit-card",
@@ -2420,7 +2417,7 @@
       "airport_lounge",
       "valet"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "hsbc-skywards-signature-credit-card",
@@ -2479,7 +2476,7 @@
       "cinema_bogo",
       "airport_lounge"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "hsbc-skywards-infinite-credit-card",
@@ -2538,7 +2535,7 @@
       "cinema_bogo",
       "airport_lounge"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "dib-skywards-platinum-credit-card",
@@ -2593,7 +2590,7 @@
       "skywards",
       "noon"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "adib-skywards-signature-credit-card",
@@ -2651,7 +2648,7 @@
       "airport_lounge",
       "valet"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "adib-skywards-infinite-credit-card",
@@ -2709,7 +2706,7 @@
       "airport_lounge",
       "valet"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "citi-ultima-credit-card",
@@ -2768,7 +2765,7 @@
       "valet",
       "golf"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "dib-shams-infinite-credit-card",
@@ -2831,7 +2828,7 @@
       "valet",
       "golf"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "dib-consumer-cashback-platinum-credit-card",
@@ -2882,7 +2879,7 @@
     "ecosystem_tags": [
       "noon"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "dib-consumer-cashback-reward-credit-card",
@@ -2894,7 +2891,7 @@
     "min_salary_aed": 5000,
     "annual_fee_aed": 210,
     "is_free_for_life": false,
-    "annual_fee_waiver_condition": null,
+    "annual_fee_waiver_condition": "What is the annual fee, and is it really free for the first year?",
     "monthly_interest_rate_percent": 3.69,
     "fx_fee_percent": null,
     "welcome_bonus": null,
@@ -2924,16 +2921,17 @@
     },
     "source_urls": [
       "https://kredit.ae/credit-cards/dib-consumer-cashback-reward-credit-card/details",
-      "https://www.dib.ae/docs/default-source/cpr/kfs/cards-kfs-dib-new-credit-cards-cm-sign-reqd-static.pdf?sfvrsn=799c3157_43"
+      "https://www.dib.ae/docs/default-source/cpr/kfs/cards-kfs-dib-new-credit-cards-cm-sign-reqd-static.pdf?sfvrsn=799c3157_43",
+      "https://creditcardfinder.ae/credit-card/dib-consumer-cashback-reward-credit-card/"
     ],
-    "first_year_free": null,
-    "min_monthly_spend_aed": 1000,
+    "first_year_free": true,
+    "min_monthly_spend_aed": 100,
     "early_cancellation_fee_aed": null,
     "apply_url": null,
     "ecosystem_tags": [
       "noon"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "liv-cashback-credit-card",
@@ -2993,7 +2991,7 @@
       "cinema_bogo",
       "airport_lounge"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "liv-tamayaz-platinum-card",
@@ -3038,8 +3036,7 @@
     },
     "source_urls": [
       "https://kredit.ae/credit-cards/liv-tamayaz-platinum-card/details",
-      "https://www.liv.me/-/media/liv/website/pdf/kfs/liv_tamayaz_credit_card_kfs.pdf",
-      "https://creditcardfinder.ae/credit-card/liv-tamayaz-platinum-credit-card/"
+      "https://www.liv.me/-/media/liv/website/pdf/kfs/liv_tamayaz_credit_card_kfs.pdf"
     ],
     "first_year_free": true,
     "min_monthly_spend_aed": 750,
@@ -3051,7 +3048,7 @@
       "cinema_bogo",
       "airport_lounge"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "adcb-talabat-credit-card",
@@ -3100,7 +3097,7 @@
       "https://creditcardfinder.ae/credit-card/adcb-talabat-credit-card/"
     ],
     "first_year_free": true,
-    "min_monthly_spend_aed": null,
+    "min_monthly_spend_aed": 2500,
     "early_cancellation_fee_aed": null,
     "apply_url": null,
     "ecosystem_tags": [
@@ -3108,7 +3105,7 @@
       "talabat",
       "airport_lounge"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "fab-islamic-cashback-credit-card",
@@ -3150,8 +3147,7 @@
     },
     "source_urls": [
       "https://kredit.ae/credit-cards/fab-islamic-cashback-credit-card/details",
-      "https://www.bankfab.com/-/media/fab-uds/personal/key-facts-statements/fab-islamic/fab-credit-cards-islamic-key-facts-statement.pdf?view=1",
-      "https://creditcardfinder.ae/credit-card/fab-cashback-credit-card/"
+      "https://www.bankfab.com/-/media/fab-uds/personal/key-facts-statements/fab-islamic/fab-credit-cards-islamic-key-facts-statement.pdf?view=1"
     ],
     "first_year_free": null,
     "min_monthly_spend_aed": null,
@@ -3162,7 +3158,7 @@
       "careem",
       "airport_lounge"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "fab-emirati-islamic-credit-card",
@@ -3219,7 +3215,7 @@
       "airport_lounge",
       "valet"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "rakbank-world-credit-card",
@@ -3254,10 +3250,10 @@
     },
     "cashback_rates": {
       "groceries_percent": 10.0,
-      "fuel_percent": null,
+      "fuel_percent": 0.25,
       "dining_percent": 10.0,
       "utilities_telecom_percent": 0.25,
-      "education_percent": null,
+      "education_percent": 0.25,
       "monthly_cap_aed": 300,
       "international_percent": null,
       "other_percent": 1.0
@@ -3275,7 +3271,7 @@
       "careem",
       "airport_lounge"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "rakbank-titanium-credit-card",
@@ -3307,10 +3303,10 @@
     },
     "cashback_rates": {
       "groceries_percent": 5.0,
-      "fuel_percent": null,
+      "fuel_percent": 0.25,
       "dining_percent": 5.0,
       "utilities_telecom_percent": 0.25,
-      "education_percent": null,
+      "education_percent": 0.25,
       "monthly_cap_aed": 100,
       "international_percent": null,
       "other_percent": 1.0
@@ -3331,7 +3327,7 @@
       "to": "#DC2626",
       "ink": "light"
     },
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "rakbank-red-credit-card",
@@ -3348,7 +3344,8 @@
     "fx_fee_percent": null,
     "welcome_bonus": "AED 300 Welcome Bonus — Apply through the Rakbank app 31 Aug-15 Nov 2026 without holding a Rakbank card, then spend AED 3,000 within 60 days; Existing Rakbank customers without a Rakbank credit card can apply in the app by 15 Nov 2026 and spend AED 3,000 within 60 days of issuance for AED 300 cashback. Self-employed customers and bank staff are excluded",
     "reward_type": [
-      "Cashback"
+      "Cashback",
+      "AirMiles"
     ],
     "key_benefits": [
       "Free Monthly International Transfer: One free international transfer every month through MoneyTransfer.",
@@ -3364,10 +3361,10 @@
     },
     "cashback_rates": {
       "groceries_percent": null,
-      "fuel_percent": null,
+      "fuel_percent": 0.25,
       "dining_percent": null,
       "utilities_telecom_percent": 0.25,
-      "education_percent": null,
+      "education_percent": 0.25,
       "monthly_cap_aed": 300,
       "international_percent": null,
       "other_percent": 1.5
@@ -3383,7 +3380,7 @@
     "ecosystem_tags": [
       "noon"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "rakbank-air-arabia-platinum-credit-card",
@@ -3437,7 +3434,7 @@
       "noon",
       "careem"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "enbd-visa-infinite-credit-card",
@@ -3491,12 +3488,13 @@
     "early_cancellation_fee_aed": null,
     "apply_url": null,
     "ecosystem_tags": [
+      "noon",
       "cinema_bogo",
       "airport_lounge",
       "valet",
       "golf"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "enbd-mastercard-platinum-credit-card",
@@ -3523,7 +3521,7 @@
     ],
     "lifestyle_perks": {
       "lounge_access": "4 visits a year via Mastercard Travel Pass.",
-      "cinema_offers": null,
+      "cinema_offers": "Merchant",
       "golf_access": true,
       "valet_parking": false,
       "valet_locations": []
@@ -3550,7 +3548,7 @@
       "airport_lounge",
       "golf"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "enbd-mastercard-titanium-credit-card",
@@ -3577,7 +3575,7 @@
     ],
     "lifestyle_perks": {
       "lounge_access": "Complimentary lounge access on flight delay",
-      "cinema_offers": null,
+      "cinema_offers": "Merchant",
       "golf_access": false,
       "valet_parking": false,
       "valet_locations": []
@@ -3603,7 +3601,7 @@
     "ecosystem_tags": [
       "airport_lounge"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "enbd-go4it-platinum-credit-card",
@@ -3656,7 +3654,7 @@
     "ecosystem_tags": [
       "cinema_bogo"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "enbd-lulu-247-titanium-credit-card",
@@ -3679,7 +3677,7 @@
     "key_benefits": [],
     "lifestyle_perks": {
       "lounge_access": null,
-      "cinema_offers": null,
+      "cinema_offers": "Merchant",
       "golf_access": false,
       "valet_parking": false,
       "valet_locations": []
@@ -3703,7 +3701,7 @@
     "early_cancellation_fee_aed": null,
     "apply_url": null,
     "ecosystem_tags": [],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "enbd-webshopper-credit-card",
@@ -3728,7 +3726,7 @@
     ],
     "lifestyle_perks": {
       "lounge_access": null,
-      "cinema_offers": null,
+      "cinema_offers": "Merchant",
       "golf_access": false,
       "valet_parking": false,
       "valet_locations": []
@@ -3752,7 +3750,7 @@
     "early_cancellation_fee_aed": null,
     "apply_url": null,
     "ecosystem_tags": [],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "fab-blue-infinite-credit-card",
@@ -3805,7 +3803,7 @@
       "noon",
       "airport_lounge"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "fab-blue-platinum-credit-card",
@@ -3857,7 +3855,7 @@
     "ecosystem_tags": [
       "noon"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "blue-fab-signature-credit-card",
@@ -3910,7 +3908,7 @@
       "noon",
       "airport_lounge"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "fab-du-titanium-credit-card",
@@ -3964,7 +3962,7 @@
       "talabat",
       "airport_lounge"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "mashreq-solitaire-credit-card",
@@ -4012,8 +4010,7 @@
     },
     "source_urls": [
       "https://kredit.ae/credit-cards/mashreq-solitaire-credit-card/details",
-      "https://www.mashreq.com/-/jssmedia/pdfs/neo/cards/KFS-TnC/Mashreq-Cards-KFS-new-en-ar.ashx",
-      "https://creditcardfinder.ae/credit-card/mashreq-solitaire-credit-card/"
+      "https://www.mashreq.com/-/jssmedia/pdfs/neo/cards/KFS-TnC/Mashreq-Cards-KFS-new-en-ar.ashx"
     ],
     "first_year_free": null,
     "min_monthly_spend_aed": null,
@@ -4025,7 +4022,7 @@
       "valet",
       "golf"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "mashreq-platinum-plus-credit-card",
@@ -4079,7 +4076,7 @@
       "noon",
       "airport_lounge"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "mashreq-cashback-credit-card",
@@ -4120,8 +4117,7 @@
     },
     "source_urls": [
       "https://kredit.ae/credit-cards/mashreq-cashback-credit-card/details",
-      "https://www.mashreq.com/-/jssmedia/pdfs/neo/cards/KFS-TnC/Mashreq-Cards-KFS-new-en-ar.ashx",
-      "https://creditcardfinder.ae/credit-card/mashreq-cashback-credit-card/"
+      "https://www.mashreq.com/-/jssmedia/pdfs/neo/cards/KFS-TnC/Mashreq-Cards-KFS-new-en-ar.ashx"
     ],
     "first_year_free": true,
     "min_monthly_spend_aed": null,
@@ -4137,7 +4133,7 @@
       "to": "#F59F00",
       "ink": "light"
     },
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "emirates-islamic-etihad-guest-saqer-credit-card",
@@ -4193,7 +4189,7 @@
       "valet",
       "golf"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "emirates-islamic-etihad-guest-platinum-credit-card",
@@ -4243,7 +4239,7 @@
       "noon",
       "careem"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "emirates-islamic-etihad-guest-premium-credit-card",
@@ -4285,8 +4281,7 @@
     },
     "source_urls": [
       "https://kredit.ae/credit-cards/emirates-islamic-etihad-guest-premium-credit-card/details",
-      "https://www.emiratesislamic.ae/-/media/ei/pdfs/key-information/kfs_cards_ea.pdf",
-      "https://creditcardfinder.ae/credit-card/emirates-islamic-etihad-guest-premium-credit-card/"
+      "https://www.emiratesislamic.ae/-/media/ei/pdfs/key-information/kfs_cards_ea.pdf"
     ],
     "first_year_free": null,
     "min_monthly_spend_aed": null,
@@ -4300,7 +4295,7 @@
       "valet",
       "golf"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "emirates-islamic-etihad-guest-ameera-credit-card",
@@ -4361,7 +4356,7 @@
       "valet",
       "golf"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "emirates-islamic-cashback-credit-card",
@@ -4411,7 +4406,7 @@
       "noon",
       "careem"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "emirates-islamic-flex-credit-card",
@@ -4465,7 +4460,7 @@
       "careem",
       "cinema_bogo"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "emirates-islamic-rta-credit-card",
@@ -4520,7 +4515,7 @@
       "careem",
       "cinema_bogo"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "emirates-islamic-emarati-credit-card",
@@ -4579,7 +4574,7 @@
       "airport_lounge",
       "valet"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "cbd-yes-rewards-credit-card",
@@ -4631,7 +4626,7 @@
       "noon",
       "airport_lounge"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "hsbc-cash-plus-credit-card",
@@ -4688,7 +4683,7 @@
       "cinema_bogo",
       "airport_lounge"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "hsbc-live-plus-credit-card",
@@ -4745,7 +4740,7 @@
       "cinema_bogo",
       "airport_lounge"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "rakbank-rakislamic-world-credit-card",
@@ -4799,7 +4794,7 @@
       "careem",
       "airport_lounge"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "enbd-go4it-gold-credit-card",
@@ -4825,7 +4820,7 @@
     ],
     "lifestyle_perks": {
       "lounge_access": null,
-      "cinema_offers": null,
+      "cinema_offers": "Merchant",
       "golf_access": false,
       "valet_parking": false,
       "valet_locations": []
@@ -4849,7 +4844,7 @@
     "early_cancellation_fee_aed": null,
     "apply_url": null,
     "ecosystem_tags": [],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "enbd-lulu-247-platinum-credit-card",
@@ -4901,7 +4896,7 @@
     "ecosystem_tags": [
       "airport_lounge"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "citi-prestige-credit-card",
@@ -4918,7 +4913,6 @@
     "fx_fee_percent": 2.99,
     "welcome_bonus": "Benefit available as per bank terms and conditions.",
     "reward_type": [
-      "Cashback",
       "AirMiles"
     ],
     "key_benefits": [
@@ -4944,8 +4938,7 @@
       "other_percent": null
     },
     "source_urls": [
-      "https://kredit.ae/credit-cards/citi-prestige-credit-card/details",
-      "https://creditcardfinder.ae/credit-card/citi-prestige-credit-card/"
+      "https://kredit.ae/credit-cards/citi-prestige-credit-card/details"
     ],
     "first_year_free": null,
     "min_monthly_spend_aed": null,
@@ -4958,7 +4951,7 @@
       "valet",
       "golf"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "citi-premier-credit-card",
@@ -4975,7 +4968,6 @@
     "fx_fee_percent": 2.99,
     "welcome_bonus": "AED 750 Welcome Bonus — Direct Citi applicants may get AED 750 after spending AED 10,000 within 60 days; affiliate applications do not qualify; New Citi customers applying directly on citibank.ae earn an AED 750 statement credit after AED 10,000 spend within 60 days of card issuance. Third-party or affiliate applications do not qualify",
     "reward_type": [
-      "Cashback",
       "AirMiles"
     ],
     "key_benefits": [
@@ -5004,8 +4996,7 @@
     },
     "source_urls": [
       "https://kredit.ae/credit-cards/citi-premier-credit-card/details",
-      "https://www.citibank.ae/content/dam/cgcpc/ae/prelogin/www-citibank-ae/doc/en/pdf/credit-cards/kfs-cards.pdf",
-      "https://creditcardfinder.ae/credit-card/citi-premier-credit-card/"
+      "https://www.citibank.ae/content/dam/cgcpc/ae/prelogin/www-citibank-ae/doc/en/pdf/credit-cards/kfs-cards.pdf"
     ],
     "first_year_free": null,
     "min_monthly_spend_aed": null,
@@ -5018,7 +5009,7 @@
       "airport_lounge",
       "golf"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "citi-rewards-credit-card",
@@ -5035,7 +5026,6 @@
     "fx_fee_percent": 2.99,
     "welcome_bonus": "AED 300 Statement Credit — Direct Citi applicants may get AED 300 after spending AED 6,000 within 60 days; affiliate applications do not qualify; Available to new Citi credit card customers who apply directly through citibank.ae. Spend AED 6,000 within 60 days of card approval to receive a AED 300 statement credit",
     "reward_type": [
-      "Cashback",
       "AirMiles"
     ],
     "key_benefits": [
@@ -5064,8 +5054,7 @@
     },
     "source_urls": [
       "https://kredit.ae/credit-cards/citi-rewards-credit-card/details",
-      "https://www.citibank.ae/content/dam/cgcpc/ae/prelogin/www-citibank-ae/doc/en/pdf/credit-cards/kfs-cards.pdf",
-      "https://creditcardfinder.ae/credit-card/citi-rewards-credit-card/"
+      "https://www.citibank.ae/content/dam/cgcpc/ae/prelogin/www-citibank-ae/doc/en/pdf/credit-cards/kfs-cards.pdf"
     ],
     "first_year_free": null,
     "min_monthly_spend_aed": null,
@@ -5077,7 +5066,7 @@
       "careem",
       "airport_lounge"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "citi-cashback-credit-card",
@@ -5130,7 +5119,7 @@
       "careem",
       "airport_lounge"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "adcb-lulu-platinum-credit-card",
@@ -5185,7 +5174,7 @@
       "cinema_bogo",
       "airport_lounge"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "fab-elite-credit-card",
@@ -5243,7 +5232,7 @@
       "valet",
       "golf"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "fab-rewards-indulge-credit-card",
@@ -5295,10 +5284,9 @@
     "apply_url": null,
     "ecosystem_tags": [
       "noon",
-      "careem",
       "airport_lounge"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "rakbank-elevate-credit-card",
@@ -5313,7 +5301,7 @@
     "annual_fee_waiver_condition": "First 3 months of Privilege free",
     "monthly_interest_rate_percent": null,
     "fx_fee_percent": null,
-    "welcome_bonus": "125,000 RAKrewards Welcome Bonus — Apply through the Rakbank app 31 Aug-15 Nov 2026 without holding a Rakbank card, then spend AED 20,000 within 60 days; Apply for and be issued the card via the Rakbank digital app, 31 Aug-15 Nov 2026 (new to Rakbank credit cards), then spend AED 20,000 within 60 days of issuance for 125,000 RAKrewards, credited within 90 days after the promo ends",
+    "welcome_bonus": "Fee waiver",
     "reward_type": [
       "Points"
     ],
@@ -5354,7 +5342,7 @@
       "careem",
       "airport_lounge"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "enbd-darna-visa-infinite-credit-card",
@@ -5402,8 +5390,7 @@
     },
     "source_urls": [
       "https://kredit.ae/credit-cards/enbd-darna-visa-infinite-credit-card/details",
-      "https://cdn.emiratesnbd.com/enbd/files/pdf/kfs_credit_cards_horizontal_em_new.pdf",
-      "https://creditcardfinder.ae/credit-card/emirates-nbd-darna-visa-infinite-credit-card/"
+      "https://cdn.emiratesnbd.com/enbd/files/pdf/kfs_credit_cards_horizontal_em_new.pdf"
     ],
     "first_year_free": null,
     "min_monthly_spend_aed": null,
@@ -5415,7 +5402,7 @@
       "valet",
       "golf"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "enbd-darna-select-visa-credit-card",
@@ -5461,8 +5448,7 @@
     },
     "source_urls": [
       "https://kredit.ae/credit-cards/enbd-darna-select-visa-credit-card/details",
-      "https://cdn.emiratesnbd.com/enbd/files/pdf/kfs_credit_cards_horizontal_em_new.pdf",
-      "https://creditcardfinder.ae/credit-card/emirates-nbd-darna-select-visa-credit-card/"
+      "https://cdn.emiratesnbd.com/enbd/files/pdf/kfs_credit_cards_horizontal_em_new.pdf"
     ],
     "first_year_free": true,
     "min_monthly_spend_aed": null,
@@ -5471,7 +5457,7 @@
     "ecosystem_tags": [
       "aldar_darna"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "enbd-share-platinum-credit-card",
@@ -5515,8 +5501,7 @@
     },
     "source_urls": [
       "https://kredit.ae/credit-cards/enbd-share-platinum-credit-card/details",
-      "https://www.emiratesnbd.com/en/KFS/credit-card",
-      "https://creditcardfinder.ae/credit-card/emirates-nbd-share-visa-platinum-credit-card/"
+      "https://www.emiratesnbd.com/en/KFS/credit-card"
     ],
     "first_year_free": true,
     "min_monthly_spend_aed": null,
@@ -5525,7 +5510,7 @@
     "ecosystem_tags": [
       "maf_share"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "enbd-voyager-world-elite-credit-card",
@@ -5584,7 +5569,7 @@
       "valet",
       "golf"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "adcb-essential-cashback-credit-card",
@@ -5639,7 +5624,7 @@
       "cinema_bogo",
       "airport_lounge"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "adib-cashback-covered-credit-card",
@@ -5690,7 +5675,7 @@
     "ecosystem_tags": [
       "noon"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "adib-marriott-bonvoy-visa-signature-card",
@@ -5747,7 +5732,7 @@
       "airport_lounge",
       "valet"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "adib-marriott-bonvoy-visa-infinite-card",
@@ -5804,7 +5789,7 @@
       "airport_lounge",
       "valet"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "adib-share-infinite-credit-card",
@@ -5860,7 +5845,7 @@
       "noon",
       "valet"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "emirates-islamic-amazon-world-credit-card",
@@ -5920,7 +5905,7 @@
       "valet",
       "golf"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "emirates-islamic-amazon-platinum-credit-card",
@@ -5978,7 +5963,7 @@
       "careem",
       "airport_lounge"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "fab-adnoc-rewards-credit-card",
@@ -6029,11 +6014,10 @@
     "apply_url": null,
     "ecosystem_tags": [
       "noon",
-      "careem",
       "adnoc",
       "airport_lounge"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "fab-cashback-credit-card",
@@ -6075,8 +6059,7 @@
       "other_percent": 1.0
     },
     "source_urls": [
-      "https://kredit.ae/credit-cards/fab-cashback-credit-card/details",
-      "https://creditcardfinder.ae/credit-card/fab-cashback-credit-card/"
+      "https://kredit.ae/credit-cards/fab-cashback-credit-card/details"
     ],
     "first_year_free": null,
     "min_monthly_spend_aed": 150,
@@ -6092,7 +6075,7 @@
       "to": "#2F6FDE",
       "ink": "light"
     },
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "fab-etihad-guest-infinite-credit-card",
@@ -6146,7 +6129,7 @@
       "airport_lounge",
       "golf"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "fab-etihad-guest-signature-credit-card",
@@ -6200,7 +6183,7 @@
       "airport_lounge",
       "golf"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "fab-rewards-active-credit-card",
@@ -6253,10 +6236,9 @@
     "apply_url": null,
     "ecosystem_tags": [
       "noon",
-      "careem",
       "airport_lounge"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "emirates-islamic-flex-elite-credit-card",
@@ -6314,7 +6296,7 @@
       "valet",
       "golf"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "adib-share-platinum-credit-card",
@@ -6368,7 +6350,7 @@
       "noon",
       "valet"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "emirates-islamic-cashback-plus-credit-card",
@@ -6425,7 +6407,7 @@
       "valet",
       "golf"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "adcb-shukran-credit-card",
@@ -6477,7 +6459,7 @@
     "ecosystem_tags": [
       "noon"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "emirates-islamic-skywards-black-credit-card",
@@ -6537,7 +6519,7 @@
       "valet",
       "golf"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "fab-travel-credit-card",
@@ -6592,7 +6574,7 @@
       "careem",
       "airport_lounge"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "enbd-dnata-world-credit-card",
@@ -6618,7 +6600,7 @@
     ],
     "lifestyle_perks": {
       "lounge_access": "8 visits a year via Mastercard Travel Pass.",
-      "cinema_offers": null,
+      "cinema_offers": "Merchant",
       "golf_access": true,
       "valet_parking": true,
       "valet_locations": [
@@ -6648,7 +6630,7 @@
       "valet",
       "golf"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "adcb-traveller-credit-card",
@@ -6665,7 +6647,8 @@
     "fx_fee_percent": 0.0,
     "welcome_bonus": "AED 1,200 Expedia.ae Voucher — Get an AED 2,000 Expedia.ae hotel voucher after paying the annual fee and spending AED 15,000 within 60 days; Issued within 60 days of the fee; valid 6 months. Single use at expedia.ae/adcb on one room's base rate. Not valid at Marriott, Hilton, IHG, Radisson, Wyndham, Four Seasons, Emaar, Rove or Atlantis hotels or other chains on Expedia's exclusion list",
     "reward_type": [
-      "Cashback"
+      "Cashback",
+      "AirMiles"
     ],
     "key_benefits": [
       "Complimentary Golf: Free golf year-round at Arabian Ranches Golf Club (Dubai) and Abu Dhabi Golf Club.",
@@ -6692,8 +6675,7 @@
       "other_percent": 1.5
     },
     "source_urls": [
-      "https://kredit.ae/credit-cards/adcb-traveller-credit-card/details",
-      "https://creditcardfinder.ae/credit-card/adcb-traveller-credit-card/"
+      "https://kredit.ae/credit-cards/adcb-traveller-credit-card/details"
     ],
     "first_year_free": null,
     "min_monthly_spend_aed": 5000,
@@ -6705,7 +6687,7 @@
       "airport_lounge",
       "golf"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "cbd-smiles-visa-signature-credit-card",
@@ -6750,8 +6732,7 @@
     },
     "source_urls": [
       "https://kredit.ae/credit-cards/cbd-smiles-visa-signature-credit-card/details",
-      "https://www.cbd.ae/docs/default-source/document/cards/cbd-kfs-conventional_cbd-smiles-signature-cc.pdf?sfvrsn=11a9066b_4",
-      "https://creditcardfinder.ae/credit-card/cbd-smiles-signature-credit-card/"
+      "https://www.cbd.ae/docs/default-source/document/cards/cbd-kfs-conventional_cbd-smiles-signature-cc.pdf?sfvrsn=11a9066b_4"
     ],
     "first_year_free": true,
     "min_monthly_spend_aed": null,
@@ -6761,7 +6742,7 @@
       "noon",
       "airport_lounge"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   },
   {
     "id": "adcb-touchpoints-platinum-credit-card",
@@ -6819,6 +6800,6 @@
       "airport_lounge",
       "golf"
     ],
-    "last_verified": "2026-11-04"
+    "last_verified": "2026-11-22"
   }
 ]
