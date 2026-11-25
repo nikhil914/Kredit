@@ -1,6 +1,6 @@
 "use client";
 
-import { Calculator, CreditCard, Languages } from "lucide-react";
+import { Calculator, CreditCard, Languages, Target } from "lucide-react";
 import { useStore } from "./store";
 
 export function SiteHeader() {
@@ -20,6 +20,15 @@ export function SiteHeader() {
         </a>
 
         <div className="flex items-center gap-2">
+          <button
+            type="button"
+            onClick={() => dispatch({ type: "finderOpen", value: true })}
+            className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3.5 py-2 text-sm font-semibold text-navy-800 transition hover:border-navy-600"
+          >
+            <Target className="size-4" aria-hidden />
+            <span className="hidden sm:inline">{t("finder")}</span>
+            <span className="sr-only sm:hidden">{t("finder")}</span>
+          </button>
           <button
             type="button"
             onClick={() => dispatch({ type: "calculatorOpen", value: true })}

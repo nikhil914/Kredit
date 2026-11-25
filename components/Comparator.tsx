@@ -10,10 +10,12 @@ import { CompareDock } from "./CompareDock";
 import { CompareModal } from "./CompareModal";
 import { SpendCalculator } from "./SpendCalculator";
 import { MobileFilters } from "./MobileFilters";
+import { CategoryFinder, FINDER_ICONS } from "./CategoryFinder";
+import { FINDER_CATEGORIES } from "@/lib/categoryFinder";
 import { Info, ShieldCheck } from "lucide-react";
 
 export function Comparator() {
-  const { t, visible, allCards, state } = useStore();
+  const { t, visible, allCards, state, dispatch } = useStore();
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
   const bankCount = new Set(allCards.map((c) => c.bank_name)).size;
 
@@ -31,6 +33,23 @@ export function Comparator() {
             {t("heroTitle")}
           </h1>
           <p className="mt-4 max-w-2xl text-base text-slate-600 sm:text-lg">{t("heroSub")}</p>
+          <div className="mt-6 flex flex-wrap items-center gap-2">
+            <span className="text-sm font-semibold text-navy-900">{t("finderHero")}</span>
+            {FINDER_CATEGORIES.filter((c) => c.id !== "other").map(({ id }) => {
+              const Icon = FINDER_ICONS[id];
+              return (
+                <button
+                  key={id}
+                  type="button"
+                  onClick={() => dispatch({ type: "finderOpen", value: true, category: id })}
+                  className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-slate-700 transition hover:border-emerald-500 hover:text-emerald-700"
+                >
+                  <Icon className="size-3.5 text-emerald-600" aria-hidden />
+                  {t(`cat_${id}`)}
+                </button>
+              );
+            })}
+          </div>
           <dl className="mt-8 flex flex-wrap gap-x-10 gap-y-4">
             {[
               [allCards.length, t("statCards")],
@@ -85,6 +104,7 @@ export function Comparator() {
       <CompareDock />
       <CompareModal />
       <SpendCalculator />
+      <CategoryFinder />
       <MobileFilters open={mobileFiltersOpen} onClose={() => setMobileFiltersOpen(false)} />
       <Toast />
     </>
