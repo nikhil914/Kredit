@@ -21,6 +21,7 @@ import {
   type FilterState,
   type RewardBreakdown,
 } from "@/lib/cards";
+import type { FinderCategory } from "@/lib/categoryFinder";
 import type {
   Card,
   CardTypeFilter,
@@ -37,6 +38,8 @@ interface State extends FilterState {
   compare: string[];
   compareOpen: boolean;
   calculatorOpen: boolean;
+  finderOpen: boolean;
+  finderCategory: FinderCategory;
   spend: MonthlySpend;
   locale: Locale;
   toast: string | null;
@@ -53,6 +56,8 @@ type Action =
   | { type: "clearCompare" }
   | { type: "compareOpen"; value: boolean }
   | { type: "calculatorOpen"; value: boolean }
+  | { type: "finderOpen"; value: boolean; category?: FinderCategory }
+  | { type: "finderCategory"; value: FinderCategory }
   | { type: "spend"; key: keyof MonthlySpend; value: number }
   | { type: "setSpend"; value: MonthlySpend }
   | { type: "locale"; value: Locale }
@@ -69,6 +74,8 @@ const initialState: State = {
   compare: [],
   compareOpen: false,
   calculatorOpen: false,
+  finderOpen: false,
+  finderCategory: "telecom",
   spend: EMPTY_SPEND,
   locale: "en",
   toast: null,
@@ -107,8 +114,17 @@ function reducer(state: State, a: Action): State {
       // First open pre-fills a typical profile so results show instantly.
       if (!a.value) return { ...state, calculatorOpen: false };
       const spend = totalSpend(state.spend) === 0 ? DEFAULT_SPEND : state.spend;
-      return { ...state, calculatorOpen: true, spend, sort: "net_value" };
+      return { ...state, calculatorOpen: true, finderOpen: false, spend, sort: "net_value" };
     }
+    case "finderOpen":
+      return {
+        ...state,
+        finderOpen: a.value,
+        finderCategory: a.category ?? state.finderCategory,
+        calculatorOpen: a.value ? false : state.calculatorOpen,
+      };
+    case "finderCategory":
+      return { ...state, finderCategory: a.value };
     case "spend": {
       const spend = { ...state.spend, [a.key]: Math.max(0, a.value || 0) };
       return { ...state, spend, sort: "net_value" };
